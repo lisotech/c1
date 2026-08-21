@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SamsChecker - Online Arena</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: #1e293b;
+            --text-color: #f8fafc;
+            --light-square: #e2e8f0;
+            --dark-square: #475569;
+            --highlight: #38bdf8;
+            --selected: #facc15;
+            --whatsapp-green: #075e54;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            touch-action: manipulation;
+        }
+
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        header {
+            width: 100%;
+            padding: 6px 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--panel-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: #38bdf8;
+            margin-bottom: 0;
+        }
+
+        #status {
+            font-size: 0.8rem;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        /* Profile Banner Section */
+        .profile-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin-top: 6px;
+            margin-bottom: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            max-width: 90vw;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #38bdf8;
+        }
+
+        .profile-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f8fafc;
+            letter-spacing: 0.3px;
+        }
+
+        .game-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 6px 10px 15px 10px;
+            gap: 8px;
+            max-width: 1200px;
+            flex: 1;
+        }
+
+        #board-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            border: 4px solid #334155;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: min(52vh, 85vw);
+            height: min(52vh, 85vw);
+            max-width: 440px;
+            max-height: 440px;
+        }
+
+        .square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .light {
+            background-color: var(--light-square);
+        }
+
+        .dark {
+            background-color: var(--dark-square);
+        }
+
+        .square.highlight::after {
+            content: '';
+            width: 25%;
+            height: 25%;
+            background-color: var(--highlight);
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.9;
+        }
+
+        .square.selected {
+            background-color: #64748b !important;
+        }
+
+        .piece {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.1s ease;
+            z-index: 2;
+        }
+
+        .piece:hover {
+            transform: scale(1.05);
+        }
+
+        .piece.red {
+            background: radial-gradient(circle at 30% 30%, #f87171, #dc2626);
+            border: 2px solid #991b1b;
+        }
+
+        .piece.black {
+            background: radial-gradient(circle at 30% 30%, #475569, #0f172a);
+            border: 2px solid #020617;
+        }
+
+        .piece.king::after {
+            content: '👑';
+            font-size: min(4vw, 20px);
+        }
+
+        .sidebar {
+            background: var(--panel-bg);
+            padding: 8px 12px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .mode-select {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mode-select label {
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 6px;
+            background: #334155;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        button {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: #0369a1;
+        }
+
+        button#endTurnBtn {
+            background-color: #eab308;
+            color: #000;
+        }
+
+        /* Footer styling - visible on mobile and desktop */
+        footer {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--panel-bg);
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+            z-index: 10;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* Floating Dark Green WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 45px;
+            right: 15px;
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            z-index: 100;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        @media (min-width: 768px) {
+            html, body {
+                overflow: hidden;
+            }
+            header {
+                padding: 12px 30px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            #status {
+                font-size: 1rem;
+            }
+            .profile-banner {
+                padding: 8px 18px;
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+            .profile-img {
+                width: 44px;
+                height: 44px;
+            }
+            .profile-text {
+                font-size: 0.95rem;
+            }
+            .game-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 15px;
+                flex: 1;
+            }
+            #board-wrapper {
+                width: auto;
+                height: auto;
+            }
+            #board {
+                width: 60vh;
+                height: 60vh;
+                max-width: 520px;
+                max-height: 520px;
+            }
+            .sidebar {
+                flex-direction: column;
+                width: 200px;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 10px;
+                padding: 12px;
+                max-width: none;
+            }
+            .mode-select {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            select, button {
+                width: 100%;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+            .whatsapp-float {
+                bottom: 30px;
+                right: 30px;
+                width: 45px;
+                height: 45px;
+            }
+            .whatsapp-float svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-title-container">
+            <img src="logo.png" alt="SamsChecker Logo" class="logo-img" onerror="this.style.display='none'">
+            <h1>SamsChecker</h1>
+        </div>
+        <div id="status">Current Turn: Red Player</div>
+    </header>
+
+    <div class="profile-banner">
+        <img src="about.png" alt="Samson" class="profile-img" onerror="this.style.display='none'">
+        <span class="profile-text">I am Samson, Play with me</span>
+    </div>
+
+    <div class="game-container">
+        <div id="board-wrapper">
+            <div id="board"></div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="mode-select">
+                <label for="gameMode">Game Mode:</label>
+                <select id="gameMode" onchange="changeGameMode()">
+                    <option value="pvp">2 Players (Local)</option>
+                    <option value="pve" selected>Player vs AI</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button id="endTurnBtn" style="display:none;" onclick="manualEndTurn()">End Turn Early</button>
+                <button onclick="resetGame()">Restart Game</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 SamsChecker. All rights reserved.
+    </footer>
+
+    <!-- Floating Dark Green WhatsApp Button -->
+    <a href="https://wa.me/260974101130" target="_blank" class="whatsapp-float" aria-label="Contact on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const statusElement = document.getElementById('status');
+        const gameModeSelect = document.getElementById('gameMode');
+        const endTurnBtn = document.getElementById('endTurnBtn');
+
+        let board = [];
+        let turn = 'red'; 
+        let selectedPiece = null; 
+        let validMoves = []; 
+        let forcedPiece = null; 
+        let gameMode = 'pve'; 
+        let isAiThinking = false;
+
+        function initBoard() {
+            board = [];
+            for (let r = 0; r < 8; r++) {
+                board[r] = [];
+                for (let c = 0; c < 8; c++) {
+                    if ((r + c) % 2 === 1) {
+                        if (r < 3) {
+                            board[r][c] = { player: 'black', king: false };
+                        } else if (r > 4) {
+                            board[r][c] = { player: 'red', king: false };
+                        } else {
+                            board[r][c] = null;
+                        }
+                    } else {
+                        board[r][c] = null;
+                    }
+                }
+            }
+            turn = 'red';
+            selectedPiece = null;
+            validMoves = [];
+            forcedPiece = null;
+            isAiThinking = false;
+            endTurnBtn.style.display = 'none';
+            render();
+        }
+
+        function changeGameMode() {
+            gameMode = gameModeSelect.value;
+            resetGame();
+        }
+
+        function getPieceMoves(r, c) {
+            let piece = board[r][c];
+            if (!piece) return [];
+            
+            let moves = [];
+            const directions = [-1, 1];
+
+            directions.forEach(dr => {
+                directions.forEach(dc => {
+                    if (!piece.king) {
+                        let nextR = r + dr;
+                        let nextC = c + dc;
+
+                        if (nextR >= 0 && nextR < 8 && nextC >= 0 && nextC < 8) {
+                            let target = board[nextR][nextC];
+                            
+                            if (!target) {
+                                if ((piece.player === 'red' && dr === -1) || (piece.player === 'black' && dr === 1)) {
+                                    moves.push({ r: nextR, c: nextC, jump: null, capturedList: [] });
+                                }
+                            } 
+                            else if (target.player !== piece.player) {
+                                let jumpR = nextR + dr;
+                                let jumpC = nextC + dc;
+                                if (jumpR >= 0 && jumpR < 8 && jumpC >= 0 && jumpC < 8 && !board[jumpR][jumpC]) {
+                                    moves.push({ r: jumpR, c: jumpC, jump: { r: nextR, c: nextC }, capturedList: [{r: nextR, c: nextC}] });
+                                }
+                            }
+                        }
+                    } else {
+                        let step = 1;
+                        let foundPieceToJump = null;
+                        
+                        while (true) {
+                            let nextR = r + (dr * step);
+                            let nextC = c + (dc * step);
+
+                            if (nextR < 0 || nextR >= 8 || nextC < 0 || nextC >= 8) break;
+
+                            let target = board[nextR][nextC];
+
+                            if (!target) {
+                                if (!foundPieceToJump) {
+                                    moves.push({ r: nextR, c: nextC, jump: null, capturedList: [] });
+                                } else {
+                                    moves.push({ 
+                                        r: nextR, 
+                                        c: nextC, 
+                                        jump: { r: foundPieceToJump.r, c: foundPieceToJump.c }, 
+                                        capturedList: [foundPieceToJump] 
+                                    });
+                                }
+                            } else {
+                                if (target.player === piece.player) {
+                                    break;
+                                } else {
+                                    if (foundPieceToJump) {
+                                        break;
+                                    }
+                                    foundPieceToJump = { r: nextR, c: nextC };
+                                }
+                            }
+                            step++;
+                        }
+                    }
+                });
+            });
+            return moves;
+        }
+
+        function render() {
+            boardElement.innerHTML = '';
+            
+            for (let r = 0; r < 8; r++) {
+                for (let c = 0; c < 8; c++) {
+                    const square = document.createElement('div');
+                    square.classList.add('square');
+                    square.classList.add((r + c) % 2 === 1 ? 'dark' : 'light');
+                    square.dataset.row = r;
+                    square.dataset.col = c;
+
+                    const moveMatch = validMoves.find(m => m.r === r && m.c === c);
+                    if (moveMatch && (!isAiThinking || gameMode === 'pvp')) {
+                        square.classList.add('highlight');
+                    }
+
+                    if (selectedPiece && selectedPiece.r === r && selectedPiece.c === c) {
+                        square.classList.add('selected');
+                    }
+
+                    const piece = board[r][c];
+                    if (piece) {
+                        const pieceElement = document.createElement('div');
+                        pieceElement.classList.add('piece', piece.player);
+                        if (piece.king) pieceElement.classList.add('king');
+                        square.appendChild(pieceElement);
+                    }
+
+                    square.addEventListener('click', () => handleSquareClick(r, c));
+                    boardElement.appendChild(square);
+                }
+            }
+
+            if (forcedPiece && (gameMode === 'pvp' || turn === 'red')) {
+                endTurnBtn.style.display = 'block';
+            } else {
+                endTurnBtn.style.display = 'none';
+            }
+
+            let statusText = `Current Turn: ${turn.toUpperCase()}`;
+            if (isAiThinking) {
+                statusText = `AI (Black) is thinking...`;
+            } else if (forcedPiece) {
+                statusText += ` (Multi-jump active: Continue or End Turn)`;
+            }
+            statusElement.innerText = statusText;
+
+            if (gameMode === 'pve' && turn === 'black' && !isAiThinking) {
+                isAiThinking = true;
+                setTimeout(makeAiMove, 600);
+            }
+        }
+
+        function handleSquareClick(r, c) {
+            if (isAiThinking) return;
+            if (gameMode === 'pve' && turn === 'black') return;
+
+            const piece = board[r][c];
+
+            if (piece && piece.player === turn) {
+                if (forcedPiece && (forcedPiece.r !== r || forcedPiece.c !== c)) {
+                    return; 
+                }
+
+                validMoves = getPieceMoves(r, c);
+                selectedPiece = { r, c };
+                render();
+                return;
+            }
+
+            const moveMatch = validMoves.find(m => m.r === r && m.c === c);
+            if (moveMatch && selectedPiece) {
+                executeMove(selectedPiece.r, selectedPiece.c, moveMatch.r, moveMatch.c, moveMatch.jump, moveMatch.capturedList);
+            } else {
+                selectedPiece = null;
+                validMoves = [];
+                render();
+            }
+        }
+
+        function executeMove(fromR, fromC, toR, toC, jump, capturedList) {
+            let piece = board[fromR][fromC];
+            board[toR][toC] = piece;
+            board[fromR][fromC] = null;
+
+            let wasKingBefore = piece.king;
+
+            if (piece.player === 'red' && toR === 0) piece.king = true;
+            if (piece.player === 'black' && toR === 7) piece.king = true;
+
+            if (capturedList && capturedList.length > 0) {
+                capturedList.forEach(cap => {
+                    board[cap.r][cap.c] = null;
+                });
+
+                let subsequentMoves = getPieceMoves(toR, toC);
+                let subsequentJumps = subsequentMoves.filter(m => m.jump !== null);
+
+                if (subsequentJumps.length > 0 && (!wasKingBefore && piece.king ? false : true)) {
+                    selectedPiece = { r: toR, c: toC };
+                    forcedPiece = { r: toR, c: toC };
+                    validMoves = subsequentJumps;
+                    render();
+                    
+                    if (gameMode === 'pve' && turn === 'black') {
+                        setTimeout(() => makeAiMultiJump(toR, toC, subsequentJumps), 500);
+                    }
+                    return;
+                }
+            }
+
+            finalizeTurn();
+        }
+
+        function manualEndTurn() {
+            if (!forcedPiece) return;
+            finalizeTurn();
+        }
+
+        function finalizeTurn() {
+            selectedPiece = null;
+            validMoves = [];
+            forcedPiece = null;
+            turn = turn === 'red' ? 'black' : 'red';
+            isAiThinking = false;
+            
+            render();
+            checkWinCondition();
+        }
+
+        function makeAiMultiJump(r, c, jumps) {
+            if (!isAiThinking) return;
+            let chosenJump = jumps[Math.floor(Math.random() * jumps.length)];
+            executeMove(r, c, chosenJump.r, chosenJump.c, chosenJump.jump, chosenJump.capturedList);
+        }
+
+        function makeAiMove() {
+            let availableActions = [];
+            for (let r = 0; r < 8; r++) {
+                for (let c = 0; c < 8; c++) {
+                    let piece = board[r][c];
+                    if (piece && piece.player === 'black') {
+                        let moves = getPieceMoves(r, c);
+                        moves.forEach(m => {
+                            availableActions.push({ fromR: r, fromC: c, move: m });
+                        });
+                    }
+                }
+            }
+
+            if (availableActions.length === 0) {
+                alert('Red Player Wins! (AI has no valid moves)');
+                initBoard();
+                return;
+            }
+
+            let jumpActions = availableActions.filter(a => a.move.jump !== null);
+            let chosenAction = jumpActions.length > 0 ? jumpActions[Math.floor(Math.random() * jumpActions.length)] : availableActions[Math.floor(Math.random() * availableActions.length)];
+
+            executeMove(chosenAction.fromR, chosenAction.fromC, chosenAction.move.r, chosenAction.move.c, chosenAction.move.jump, chosenAction.move.capturedList);
+        }
+
+        function checkWinCondition() {
+            let redCount = 0;
+            let blackCount = 0;
+            let redHasMoves = false;
+            let blackHasMoves = false;
+
+            for (let r = 0; r < 8; r++) {
+                for (let c = 0; c < 8; c++) {
+                    let piece = board[r][c];
+                    if (piece) {
+                        if (piece.player === 'red') {
+                            redCount++;
+                            if (getPieceMoves(r, c).length > 0) redHasMoves = true;
+                        }
+                        if (piece.player === 'black') {
+                            blackCount++;
+                            if (getPieceMoves(r, c).length > 0) blackHasMoves = true;
+                        }
+                    }
+                }
+            }
+
+            if (redCount === 0 || (turn === 'red' && !redHasMoves)) {
+                alert('Black Player / AI Wins!');
+                initBoard();
+            } else if (blackCount === 0 || (turn === 'black' && !blackHasMoves)) {
+                alert('Red Player Wins!');
+                initBoard();
+            }
+        }
+
+        function resetGame() {
+            initBoard();
+        }
+
+        initBoard();
+    </script>
+</body>
+</html>
