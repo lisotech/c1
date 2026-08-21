@@ -15,7 +15,7 @@
 
     <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between relative">
             <div class="flex items-center gap-2">
                 <div class="w-7 h-7 rounded-full overflow-hidden border border-slate-200 flex items-center justify-center bg-white shadow-sm">
                     <img src="logo.png" alt="Lisotech Innovations Logo" class="w-full h-full object-cover">
@@ -42,16 +42,16 @@
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
-        </div>
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-4 shadow-lg space-y-3">
-            <a href="#home" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 transition">Home</a>
-            <a href="#about" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 transition">About</a>
-            <a href="#services" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 transition">Services</a>
-            <a href="#contact" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 transition">Contact</a>
-            <div class="pt-2">
-                <a href="#contact" class="mobile-link block text-center bg-blue-600 text-white px-3 py-2 rounded-lg font-medium text-xs shadow-md hover:bg-blue-700 transition">Get Started</a>
+            <!-- Mobile Top-Right Dropdown Menu -->
+            <div id="mobile-menu" class="hidden absolute top-14 right-4 w-48 bg-white border border-slate-200 rounded-xl shadow-xl py-3 px-3 space-y-2 md:hidden z-50">
+                <a href="#home" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 hover:bg-slate-50 px-2 py-1.5 rounded transition">Home</a>
+                <a href="#about" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 hover:bg-slate-50 px-2 py-1.5 rounded transition">About</a>
+                <a href="#services" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 hover:bg-slate-50 px-2 py-1.5 rounded transition">Services</a>
+                <a href="#contact" class="mobile-link block font-medium text-xs text-slate-700 hover:text-blue-600 hover:bg-slate-50 px-2 py-1.5 rounded transition">Contact</a>
+                <div class="pt-1 border-t border-slate-100">
+                    <a href="#contact" class="mobile-link block text-center bg-blue-600 text-white px-3 py-2 rounded-lg font-medium text-xs shadow-md hover:bg-blue-700 transition">Get Started</a>
+                </div>
             </div>
         </div>
     </header>
@@ -329,13 +329,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript to Handle Mobile Menu Toggle -->
+    <!-- JavaScript to Handle Mobile Menu Toggle & Outside Click Dismissal -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        menuBtn.addEventListener('click', () => {
+        // Toggle menu on clicking the bars icon
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
         });
 
@@ -344,6 +346,13 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Close menu if clicked outside of it
+        window.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
     </script>
 
