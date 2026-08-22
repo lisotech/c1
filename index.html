@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-8584028948447766">
+  <title>LISOTECH INNOVATIONS | Modern Business & Digital Solutions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #0066ff;
+      --primary-glow: rgba(0, 102, 255, 0.4);
+      --secondary: #030f20;
+      --card-bg: #0b172c;
+      --card-hover: #132442;
+      --accent-cyan: #00d2ff;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* Header & Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(3, 15, 32, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: opacity 0.3s ease;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      letter-spacing: 1.5px;
+    }
+
+    /* Top-Right Dropdown Navigation Menu */
+    nav ul {
+      position: absolute;
+      top: 80px;
+      right: 8%;
+      width: 240px;
+      background: rgba(7, 24, 48, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      list-style: none;
+      padding: 15px;
+      border-radius: 16px;
+      z-index: 1001;
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav ul.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    nav ul li a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      display: block;
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+    nav ul li a:hover {
+      background: rgba(0, 102, 255, 0.15);
+      color: var(--accent-cyan);
+      transform: translateX(3px);
+    }
+
+    .mobile-menu {
+      display: block;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: transform 0.3s ease;
+      z-index: 1002;
+    }
+
+    .mobile-menu:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 190px 8% 130px;
+      background: 
+        linear-gradient(135deg, rgba(3, 15, 32, 0.96) 30%, rgba(3, 15, 32, 0.8) 100%),
+        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 750px;
+      text-align: left;
+    }
+
+    .hero h3 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .hero h3 span {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: left;
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 35px;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-book-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero-book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px var(--primary-glow);
+    }
+
+    /* General Sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Services & Cards Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 35px 30px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      background: var(--card-hover);
+      border-color: rgba(0, 102, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--accent-cyan);
+      text-align: left;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* Interactive Elements & Buttons */
+    .buy-btn {
+      background: linear-gradient(135deg, #0052cc, var(--primary));
+      border: none;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    }
+
+    .buy-btn:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    .details-content {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      text-align: left;
+    }
+
+    .details-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .software-list {
+      list-style: none;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .software-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    .separated-software-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .software-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      text-align: left;
+    }
+
+    .software-item span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .proceed-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      width: 100%;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .proceed-btn:hover {
+      background: #1ebd54;
+      transform: translateY(-1px);
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background: var(--card-bg);
+      max-width: 580px;
+      margin: auto;
+      padding: 50px 40px;
+      border-radius: 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-box h3 {
+      margin-bottom: 25px;
+      color: var(--accent-cyan);
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .contact-buttons-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .icon-only-btn {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .icon-only-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .btn-price-list {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 14px 30px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+      width: 100%;
+      max-width: 300px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-price-list:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    /* Modal Styles - Perfectly Fitted No Horizontal Scrolling */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 15, 32, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 8px;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 620px;
+      max-height: 94vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-radius: 16px;
+      padding: 18px 14px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      transform: translateY(-20px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: left;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+    /* Custom Scrollbar for Modal */
+    .modal-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .modal-content::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.02);
+      border-radius: 10px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 26px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.3s ease;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: #ff4757;
+    }
+
+    .modal-brand-header {
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .modal-brand-header h3 {
+      color: var(--primary);
+      margin-bottom: 6px;
+      font-size: 16px;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .modal-contact-line {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    .modal-contact-line strong {
+      color: var(--accent-cyan);
+    }
+
+    .modal h2 {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #fff;
+      text-align: left;
+    }
+
+    .table-responsive-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      table-layout: fixed;
+    }
+
+    .price-table th {
+      background: rgba(0, 102, 255, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 6px;
+      text-align: left;
+      font-weight: 700;
+      word-wrap: break-word;
+    }
+
+    .price-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .category-cell {
+      font-weight: 700;
+      color: var(--primary);
+      vertical-align: middle;
+      background: rgba(255, 255, 255, 0.02);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      width: 25%;
+      text-align: left;
+    }
+
+    .service-cell {
+      width: 50%;
+      text-align: left;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .amount-cell {
+      text-align: right;
+      font-weight: 600;
+      color: #25D366;
+      width: 25%;
+      padding-right: 12px;
+    }
+
+    .note-box {
+      background: rgba(0, 210, 255, 0.08);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .note-title {
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 3px;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .note-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .btn-dl {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      font-size: 12.5px;
+    }
+
+    .btn-dl:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4);
+    }
+
+    .closing-message {
+      text-align: left;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Booking Modal Styles */
+    .booking-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .booking-category-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .booking-category-card:hover {
+      background: rgba(0, 102, 255, 0.15);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .booking-category-card h4 {
+      color: var(--accent-cyan);
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .booking-category-card p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .booking-services-view {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .back-to-categories {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s ease;
+    }
+
+    .back-to-categories:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent-cyan);
+    }
+
+    .service-option-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .service-option-info {
+      font-size: 12.5px;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .service-option-info span {
+      display: block;
+      font-size: 11px;
+      color: #25D366;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .book-now-action-btn {
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .book-now-action-btn:hover {
+      background: #1ebd54;
+    }
+
+    /* Floating Communication Buttons */
+    .floating-whatsapp, .floating-telegram, .floating-phone {
+      position: fixed;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-whatsapp { bottom: 30px; background: #25D366; font-size: 24px; }
+    .floating-telegram { bottom: 92px; background: #0088cc; }
+    .floating-phone { bottom: 154px; background: #34A853; font-size: 20px; }
+
+    .floating-whatsapp:hover, .floating-telegram:hover, .floating-phone:hover {
+      transform: scale(1.15) translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
+      color: #030f20;
+      padding: 25px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid var(--accent-cyan);
+    }
+
+    footer p {
+      font-size: 14px;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    footer marquee {
+      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+      color: #030f20;
+    }
+
+    .falling-flower {
+      position: absolute;
+      top: -20px;
+      pointer-events: none;
+      z-index: 1;
+      font-size: 14px;
+      user-select: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(140px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media(min-width: 768px) {
+      .modal-content {
+        padding: 35px;
+        max-width: 650px;
+      }
+      .modal-brand-header h3 {
+        font-size: 22px;
+      }
+      .modal-contact-line {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        font-size: 13px;
+      }
+      .modal h2 {
+        font-size: 20px;
+      }
+      .price-table {
+        font-size: 14px;
+      }
+      .price-table th, .price-table td {
+        padding: 14px 10px;
+      }
+      .note-text {
+        font-size: 13px;
+      }
+      .btn-dl {
+        font-size: 15px;
+        padding: 14px;
+      }
+      .closing-message {
+        font-size: 13px;
+      }
+      .booking-menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width: 900px) {
+      .hero h3 {
+        font-size: 34px;
+      }
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav-overlay" id="blurOverlay" onclick="toggleMenu()"></div>
+
+  <header id="siteHeader">
+    <div class="navbar">
+      <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="brand-logo">
+        <div class="logo">
+          LISOTECH
+          <span>INNOVATIONS</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul id="menu">
+          <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+          <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+          <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu" id="hamburgerBtn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h3>Modern Business Solutions For <span>Zambia</span></h3>
+      <p>
+        LISOTECH INNOVATIONS offers professional business registration,
+        tax returns, compliance services, websites, branding,
+        company profiles, and world-class digital solutions.
+      </p>
+      <div class="hero-buttons">
+        <button onclick="toggleBookingModal(true)" class="hero-book-btn">
+          <i class="fas fa-calendar-check"></i> Book Now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional Registration and Compliance Solutions tailored for your enterprise</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>PACRA Services</h3>
+        <p>• Limited Company Setup</p>
+        <p>• Business Name Registration</p>
+        <p>• Annual Returns Filing</p>
+        <p>• Official PACRA Printouts</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Compliance</h3>
+        <p>Comprehensive documentation alignment ensuring all business regulatory requirements remain valid and up-to-date.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>ZPPA Services</h3>
+        <p>• New ZPPA Registrations</p>
+        <p>• Certificate Renewals</p>
+      </div>
+
+      <div class="service-card">
+        <h3>NAPSA Services</h3>
+        <p>• NAPSA Account Setup</p>
+        <p>• Individual & Company Registrations</p>
+        <p>• Regular Monthly Returns Processing</p>
+      </div>
+
+      <div class="service-card">
+        <h3>ZRA Services</h3>
+        <p>• Tax Payer Registrations</p>
+        <p>• Turnover Tax Returns</p>
+        <p>• PAYE Returns Handling</p>
+        <p>• ZRA Smart Invoice Integration</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Worker Compensation</h3>
+        <p>• New Workers Compensation Setup</p>
+        <p>• Annual Certificate Renewals</p>
+      </div>
+
+      <div class="service-card">
+        <h3>NHIMA Services</h3>
+        <p>• Individual & Company Registrations</p>
+        <p>• Regulatory Compliance & Returns Filing</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Company Profiles</h3>
+        <p>Professional corporate branding solutions to elevate your market standing.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Business Websites</h3>
+        <p>Modern, fully responsive corporate website design and web development solutions.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Premium Graphics Design</h3>
+        <p>• Facebook & IG Post Graphics</p>
+        <p>• Social Media Cover Photos</p>
+        <p>• Marketing Flyers & Banners</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Social Media Management</h3>
+        <p>• FB Page Creation & Branding</p>
+        <p>• Active Page Management</p>
+        <p>• Website Maintenance & Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Computer Software Section -->
+  <section id="computer-software" style="padding-top: 10px;">
+    <div class="section-title">
+      <h2>Computer Software Services</h2>
+      <p>Professional Operating System & Office Productivity Deployments</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Consolidated Card 1: Operating Systems -->
+      <div class="service-card">
+        <div>
+          <h3>Computer OS Installation & Activation</h3>
+          <p>Clean setup, permanent digital configuration, and licensing of genuine operating systems optimized for your hardware architecture.</p>
+        </div>
+        <button class="buy-btn" onclick="toggleDetails(event, 'os-combined-details')">Buy Software</button>
+        <div class="details-content" id="os-combined-details">
+          <p>Get completely secure deployments with required system drivers, continuous security updates, and full activation validation. Choose your system setup:</p>
+
+          <div class="separated-software-items">
+            <div class="software-item">
+              <span>1. Windows 7</span>
+              <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed to Order
+              </a>
+            </div>
+
+            <div class="software-item">
+              <span>2. Windows 8</span>
+              <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed to Order
+              </a>
+            </div>
+
+            <div class="software-item">
+              <span>3. Windows 10 Pro</span>
+              <a href="https://selar.com/74ufq5811t" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed to Order
+              </a>
+            </div>
+
+            <div class="software-item">
+              <span>4. Windows 11 (Home, Pro, Enterprise)</span>
+              <a href="https://selar.com/g8f448mr1t" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed to Order
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consolidated Card 2: Microsoft Office -->
+      <div class="service-card">
+        <div>
+          <h3>Microsoft Office Suite Services</h3>
+          <p>Professional configuration and permanent activation validation to eliminate expiration prompts across all major productivity suites.</p>
+        </div>
+        <button class="buy-btn" onclick="toggleDetails(event, 'office-combined-details')">Buy Software</button>
+        <div class="details-content" id="office-combined-details">
+          <p>We provide Microsoft Office editions ranging from <strong>2013 up to modern 2024 versions</strong>. Remote installation available within 2 hours for a seamless setup experience.</p>
+          <a href="https://www.mediafire.com/file_premium/e7zmi8o414igaxf/OfficeSetup.exe/file" target="_blank" class="proceed-btn">
+            <i class="fas fa-arrow-right"></i> Proceed to Order
+          </a>
+        </div>
+      </div>
+
+      <!-- Consolidated Card 3: Utility Assets -->
+      <div class="service-card">
+        <div>
+          <h3>System Optimization & Utilities</h3>
+          <p>Advanced data archiving tools, disk image configurations, and mandatory PC baseline hardware diagnostics.</p>
+        </div>
+        <button class="buy-btn" onclick="toggleDetails(event, 'utilities-combined-details')">Buy Software</button>
+        <div class="details-content" id="utilities-combined-details">
+          <p>Essential utilities for data management, disk archiving, and architecture optimizations:</p>
+          <ul class="software-list">
+            <li>• PowerISO Setup & Burning Tools</li>
+            <li>• WinRAR High-Efficiency File Archiver</li>
+            <li>• Windows 11 Official Upgrade Assistant</li>
+            <li>• PC Health Check Diagnostic Audit</li>
+            <li>• Complete Windows 11 ISO Installation Images</li>
+          </ul>
+          <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn">
+            <i class="fas fa-arrow-right"></i> Proceed to Order
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Connect with our expert team for fast assistance</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>Follow & Contact</h3>
+      <div class="contact-buttons-container">
+        <a href="https://wa.me/260974101130" target="_blank" class="icon-only-btn" style="background:#25D366;">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/lisotechinnovations" target="_blank" class="icon-only-btn" style="background:#1877F2;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="tel:+260974101130" class="icon-only-btn" style="background:#34A853;">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <button onclick="toggleModal(true)" class="btn-price-list">
+          <i class="fas fa-eye"></i> View Price List
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE BOOKING MODAL -->
+  <div id="bookingModal" class="modal" onclick="closeModalOutside(event, 'bookingModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleBookingModal(false)">&times;</span>
+
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Booking Desk:</strong> Select a service category</span>
+        </div>
+      </div>
+
+      <h2>Quick Service Booking</h2>
+
+      <!-- Category Selection View -->
+      <div id="bookingCategoriesView">
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Choose a category below to explore individual services and book instantly via WhatsApp:</p>
+        <div class="booking-menu-grid">
+          <div class="booking-category-card" onclick="showBookingOptions('pacra')">
+            <h4>PACRA</h4>
+            <p>Company & Business Name Registrations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('zra')">
+            <h4>ZRA</h4>
+            <p>Tax returns & registrations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('napsa')">
+            <h4>NAPSA</h4>
+            <p>Account setup & monthly returns</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('zppa')">
+            <h4>ZPPA</h4>
+            <p>New registration & renewals</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('workers')">
+            <h4>Workers Comp</h4>
+            <p>Setup & certificate renewals</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('nhima')">
+            <h4>NHIMA</h4>
+            <p>Company & personal registration</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('software')">
+            <h4>Software</h4>
+            <p>OS & Office Suite installations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('digital')">
+            <h4>Digital Services</h4>
+            <p>Websites, Profiles & Graphics</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specific Services Listing View -->
+      <div id="bookingServicesView" class="booking-services-view">
+        <button class="back-to-categories" onclick="backToCategoriesView()">
+          <i class="fas fa-arrow-left"></i> Back to Categories
+        </button>
+        <h3 id="selectedCategoryTitle" style="color: var(--accent-cyan); font-size: 15px; margin-bottom: 12px;"></h3>
+        <div id="serviceOptionsList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRICE LIST MODAL -->
+  <div id="priceModal" class="modal" onclick="closeModalOutside(event, 'priceModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleModal(false)">&times;</span>
+
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Phone:</strong> +260974101130</span>
+          <span><strong>Email:</strong> lisotech@yahoo.com</span>
+          <span><strong>Location:</strong> Lusaka, Zambia</span>
+        </div>
+      </div>
+
+      <h2>Services & Pricing Guide</h2>
+
+      <div class="table-responsive-wrapper">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th style="border-right: 1px solid rgba(255, 255, 255, 0.1);">Service Details</th>
+              <th style="text-align: right;">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- PACRA -->
+            <tr>
+              <td class="category-cell" rowspan="4">PACRA</td>
+              <td class="service-cell">Business Name</td>
+              <td class="amount-cell">K850</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Partnership</td>
+              <td class="amount-cell">K1,300</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Limited Company</td>
+              <td class="amount-cell">K2,750</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Annual Returns</td>
+              <td class="amount-cell">K250</td>
+            </tr>
+            <tr>
+              <td class="service-cell">PACRA Printout</td>
+              <td class="amount-cell">K500</td>
+            </tr>
+
+            <!-- ZRA -->
+            <tr>
+              <td class="category-cell" rowspan="4">ZRA</td>
+              <td class="service-cell">Registration</td>
+              <td class="amount-cell">K500</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Monthly Service Fee (TOT)</td>
+              <td class="amount-cell">K200</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Monthly Service Fee - PAYE</td>
+              <td class="amount-cell">K100 / Emp</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Company Registration</td>
+              <td class="amount-cell">K1,000</td>
+            </tr>
+
+            <!-- NAPSA -->
+            <tr>
+              <td class="category-cell" rowspan="3">NAPSA</td>
+              <td class="service-cell">Individual</td>
+              <td class="amount-cell">K200</td>
+            </tr>
+            <tr>
+              <td class="service-cell"> Company Reg</td>
+              <td class="amount-cell">K1000</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Compliance & Returns</td>
+              <td class="amount-cell">K250</td>
+            </tr>
+
+            <!-- ZPPA -->
+            <tr>
+              <td class="category-cell" rowspan="2">ZPPA</td>
+              <td class="service-cell">New Registration</td>
+              <td class="amount-cell">K800</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Certificate Renewal</td>
+              <td class="amount-cell">K650</td>
+            </tr>
+
+            <!-- WORKERS COMPENSATION -->
+            <tr>
+              <td class="category-cell" rowspan="2">Workers Comp</td>
+              <td class="service-cell">New Registration</td>
+              <td class="amount-cell">K1,000</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Certificate Renewal</td>
+              <td class="amount-cell">K1,000</td>
+            </tr>
+
+            <!-- NHIMA -->
+            <tr>
+              <td class="category-cell" rowspan="3">NHIMA</td>
+              <td class="service-cell">Company Reg</td>
+              <td class="amount-cell">K1,000</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Individual Reg</td>
+              <td class="amount-cell">K200</td>
+            </tr>
+            <tr>
+              <td class="service-cell">Monthly Returns</td>
+              <td class="amount-cell">K50 / Emp</td>
+            </tr>
+
+            <!-- ONLINE MUSIC DISTRIBUTION -->
+            <tr>
+              <td class="category-cell">Online Music</td>
+              <td class="service-cell">All Streaming Platforms</td>
+              <td class="amount-cell">K650</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <div class="note-title">Important Note</div>
+        <p class="note-text">The stated amounts include both the official registration fees and all applicable service charges.</p>
+      </div>
+
+      <!-- STATIC PDF DOWNLOAD ATTACHMENT LINK -->
+      <a href="Lisotech_Innovations_Price_List.pdf" download="Lisotech_Innovations_Price_List.pdf" class="btn btn-dl">
+        <i class="fa-solid fa-download"></i> Download Price List
+      </a>
+
+      <div class="closing-message">
+        Thank you for reaching out to us. We highly value your business!
+      </div>
+    </div>
+  </div>
+
+  <footer id="animated-footer">
+    <p>LISOTECH || All Rights Reserved</p>
+    <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
+  </footer>
+
+  <!-- Floating Communication Buttons -->
+  <a href="tel:+260974101130" class="floating-phone" title="Call Us">
+    <i class="fas fa-phone"></i>
+  </a>
+  <a href="https://t.me/260974101130" target="_blank" class="floating-telegram" title="Telegram">
+    <i class="fab fa-telegram-plane"></i>
+  </a>
+  <a href="https://wa.me/260974101130" target="_blank" class="floating-whatsapp" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      const overlay = document.getElementById("blurOverlay");
+      const hamburger = document.getElementById("hamburgerBtn");
+      
+      menu.classList.toggle("active");
+      overlay.classList.toggle("active");
+      
+      if (menu.classList.contains("active")) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+
+    function toggleDetails(event, elementId) {
+      if (event) event.stopPropagation();
+      const targetSection = document.getElementById(elementId);
+      const isCurrentlyOpen = targetSection.style.display === "block";
+      const allDetails = document.querySelectorAll('.details-content');
+      allDetails.forEach(panel => {
+        panel.style.display = "none";
+      });
+      if (!isCurrentlyOpen) {
+        targetSection.style.display = "block";
+      }
+    }
+
+    /* Modal Script Functions */
+    function toggleModal(show) {
+      const modal = document.getElementById("priceModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    /* Booking Modal Scripts */
+    function toggleBookingModal(show) {
+      const modal = document.getElementById("bookingModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        backToCategoriesView();
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    const bookingData = {
+      pacra: {
+        title: "PACRA Services",
+        items: [
+          { name: "Business Name ", price: "K850" },
+          { name: "Partnership", price: "K1500" },
+          { name: "Limited Company", price: "K3,200" },
+          { name: "Annual Returns", price: "K250/Y" },
+          { name: "PACRA Printout", price: "K500" }
+        ]
+      },
+      zra: {
+        title: "ZRA Services",
+        items: [
+          { name: "Tax Payer Registration", price: "K500" },
+          { name: "Turnover Tax Returns", price: "K200" },
+          { name: "PAYE Returns Handling", price: "K100 / Emp" },
+          { name: "ZRA Smart Invoice", price: "K350" }
+        ]
+      },
+      napsa: {
+        title: "NAPSA Services",
+        items: [
+          { name: "Individual Reg", price: "K200" },
+          { name: "Company Reg", price: "K100 / Emp" },
+          { name: "Compliancy & Returns", price: "K500" }
+        ]
+      },
+      zppa: {
+        title: "ZPPA Services",
+        items: [
+          { name: "New ZPPA Registration", price: "K900" },
+          { name: "Certificate Renewal", price: "K600" }
+        ]
+      },
+      workers: {
+        title: "Workers Compensation",
+        items: [
+          { name: "New Workers Comp Setup", price: "K1,000" },
+          { name: "Annual Certificate Renewal", price: "K1,000" }
+        ]
+      },
+      nhima: {
+        title: "NHIMA Services",
+        items: [
+          { name: "Company Registration", price: "K1,000" },
+          { name: "Personal Registration", price: "K200" },
+          { name: "Monthly Returns Filing", price: "K50 / Emp" }
+        ]
+      },
+      software: {
+        title: "Computer Software",
+        items: [
+          { name: "Windows 10 Pro Installation", price: "Selar / Custom" },
+          { name: "Windows 11 Setup", price: "Selar / Custom" },
+          { name: "Microsoft Office Suite", price: "Full Edition" }
+        ]
+      },
+      digital: {
+        title: "Digital Solutions",
+        items: [
+          { name: "Business Website Design", price: "Custom Quote" },
+          { name: "Company Profile Branding", price: "Custom Quote" },
+          { name: "Social Media Graphics", price: "Custom Quote" }
+        ]
+      }
+    };
+
+    function showBookingOptions(categoryKey) {
+      const category = bookingData[categoryKey];
+      document.getElementById("selectedCategoryTitle").innerText = category.title;
+      
+      const listContainer = document.getElementById("serviceOptionsList");
+      listContainer.innerHTML = "";
+      
+      category.items.forEach(item => {
+        const whatsappMsg = encodeURIComponent(`Hello Lisotech Innovations, I would like to book / inquire about: ${item.name} (${category.title}) priced at ${item.price}. Please assist.`);
+        const whatsappLink = `https://wa.me/260974101130?text=${whatsappMsg}`;
+        
+        const optionDiv = document.createElement("div");
+        optionDiv.className = "service-option-item";
+        optionDiv.innerHTML = `
+          <div class="service-option-info">
+            ${item.name}
+            <span>Fee: ${item.price}</span>
+          </div>
+          <a href="${whatsappLink}" target="_blank" class="book-now-action-btn">
+            <i class="fab fa-whatsapp"></i> Book Now
+          </a>
+        `;
+        listContainer.appendChild(optionDiv);
+      });
+
+      document.getElementById("bookingCategoriesView").style.display = "none";
+      document.getElementById("bookingServicesView").style.display = "block";
+    }
+
+    function backToCategoriesView() {
+      document.getElementById("bookingServicesView").style.display = "none";
+      document.getElementById("bookingCategoriesView").style.display = "block";
+    }
+
+    function closeModalOutside(event, modalId) {
+      const modal = document.getElementById(modalId);
+      const modalContent = modal.querySelector('.modal-content');
+      if (!modalContent.contains(event.target)) {
+        if (modalId === 'priceModal') toggleModal(false);
+        if (modalId === 'bookingModal') toggleBookingModal(false);
+      }
+    }
+
+    /* Footer Animations */
+    function createFlower() {
+      const footer = document.getElementById('animated-footer');
+      if (!footer) return;
+      const flower = document.createElement('div');
+      flower.classList.add('falling-flower');
+      const flowerTypes = ['✿', '❀', '❁', '💮'];
+      flower.innerText = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+      const colors = ['#00d2ff', '#0066ff', '#25D366', '#ffffff', '#60a5fa'];
+      flower.style.color = colors[Math.floor(Math.random() * colors.length)];
+      flower.style.left = Math.random() * 100 + '%';
+      const size = Math.random() * 8 + 10;
+      flower.style.fontSize = size + 'px';
+      const duration = Math.random() * 1.5 + 1.5;
+      flower.style.animationDuration = duration + 's';
+      footer.appendChild(flower);
+      setTimeout(() => {
+        flower.remove();
+      }, duration * 1000);
+    }
+    setInterval(createFlower, 500);
+  </script>
+
+</body>
+</html>
