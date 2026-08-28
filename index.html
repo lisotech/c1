@@ -47,7 +47,6 @@
     }
 
     /* Header & Navbar */
-    google.com, pub-8584028948447766, DIRECT, f08c47fec0942fa0
     header {
       position: fixed;
       top: 0;
@@ -128,7 +127,7 @@
       pointer-events: auto;
     }
 
-    nav ul li a {
+    nav ul li a, nav ul li button {
       color: var(--text-main);
       text-decoration: none;
       font-size: 15px;
@@ -138,9 +137,14 @@
       display: block;
       padding: 10px 14px;
       border-radius: 8px;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
     }
 
-    nav ul li a:hover {
+    nav ul li a:hover, nav ul li button:hover {
       background: rgba(0, 102, 255, 0.15);
       color: var(--accent-cyan);
       transform: translateX(3px);
@@ -629,6 +633,18 @@
       text-align: left;
     }
 
+    .modal-body-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .modal-body-text strong {
+      color: var(--text-main);
+    }
+
     .table-responsive-wrapper {
       width: 100%;
       overflow-x: hidden;
@@ -882,32 +898,27 @@
       transform: scale(1.15) translateY(-2px);
     }
 
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
-      color: #030f20;
-      padding: 25px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-top: 3px solid var(--accent-cyan);
+    /* Footer Links Style */
+    .footer-policy-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 8px 0;
     }
 
-    footer p {
-      font-size: 14px;
-      font-weight: 800;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
+    .footer-policy-links button {
+      background: none;
+      border: none;
+      color: #030f20;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
     }
 
-    footer marquee {
-      font-size: 13px;
-      font-weight: 600;
-      position: relative;
-      z-index: 2;
-      color: #030f20;
+    .footer-policy-links button:hover {
+      color: var(--primary);
     }
 
     .falling-flower {
@@ -999,6 +1010,8 @@
           <li><a href="#home" onclick="toggleMenu()">Home</a></li>
           <li><a href="#services" onclick="toggleMenu()">Services</a></li>
           <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
+          <li><button onclick="toggleAboutModal(true); toggleMenu();">About Us</button></li>
+          <li><button onclick="togglePrivacyModal(true); toggleMenu();">Privacy Policy</button></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
@@ -1108,7 +1121,6 @@
     </div>
 
     <div class="services-grid">
-      <!-- Consolidated Card 1: Operating Systems -->
       <div class="service-card">
         <div>
           <h3>Computer OS Installation & Activation</h3>
@@ -1150,7 +1162,6 @@
         </div>
       </div>
 
-      <!-- Consolidated Card 2: Microsoft Office -->
       <div class="service-card">
         <div>
           <h3>Microsoft Office Suite Services</h3>
@@ -1165,7 +1176,6 @@
         </div>
       </div>
 
-      <!-- Consolidated Card 3: Utility Assets -->
       <div class="service-card">
         <div>
           <h3>System Optimization & Utilities</h3>
@@ -1231,7 +1241,6 @@
 
       <h2>Quick Service Booking</h2>
 
-      <!-- Category Selection View -->
       <div id="bookingCategoriesView">
         <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Choose a category below to explore individual services and book instantly via WhatsApp:</p>
         <div class="booking-menu-grid">
@@ -1270,7 +1279,6 @@
         </div>
       </div>
 
-      <!-- Specific Services Listing View -->
       <div id="bookingServicesView" class="booking-services-view">
         <button class="back-to-categories" onclick="backToCategoriesView()">
           <i class="fas fa-arrow-left"></i> Back to Categories
@@ -1279,6 +1287,49 @@
         <div id="serviceOptionsList"></div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ABOUT US MODAL -->
+  <div id="aboutModal" class="modal" onclick="closeModalOutside(event, 'aboutModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleAboutModal(false)">&times;</span>
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>About Us</strong></span>
+        </div>
+      </div>
+      <h2>Who We Are</h2>
+      <p class="modal-body-text">
+        <strong>LISOTECH INNOVATIONS</strong> is a premier business registration, compliance, and digital solutions provider based in Lusaka, Zambia. We empower small to large enterprises by handling bureaucratic processes efficiently—ranging from PACRA business creations, ZRA tax returns and smart invoice setups, to NAPSA, ZPPA, Workers Compensation, and NHIMA compliance.
+      </p>
+      <p class="modal-body-text">
+        Beyond corporate compliance, we specialize in high-impact digital solutions, including responsive business website design, striking corporate branding, professional company profiles, software architecture installations, and social media management to help brands thrive in a digital economy.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div id="privacyModal" class="modal" onclick="closeModalOutside(event, 'privacyModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="togglePrivacyModal(false)">&times;</span>
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Privacy Policy</strong></span>
+        </div>
+      </div>
+      <h2>Privacy & Cookie Statement</h2>
+      <p class="modal-body-text">
+        At Lisotech Innovations, accessible from our official channels, protecting your personal data is a top priority. This Privacy Policy document outlines the types of information we collect and how we utilize it.
+      </p>
+      <p class="modal-body-text">
+        <strong>Information We Collect:</strong> When you contact us or request business registration services, we may collect direct personal info such as your name, email address, phone number, company information, and necessary identification documents required strictly for statutory processing (PACRA/ZRA/NAPSA).
+      </p>
+      <p class="modal-body-text">
+        <strong>Advertising Partners & Cookies:</strong> We may use third-party vendors, including Google AdSense, which use cookies to serve ads based on a user's prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Ads Settings.
+      </p>
     </div>
   </div>
 
@@ -1308,7 +1359,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- PACRA -->
             <tr>
               <td class="category-cell" rowspan="4">PACRA</td>
               <td class="service-cell">Business Name</td>
@@ -1331,7 +1381,6 @@
               <td class="amount-cell">K500</td>
             </tr>
 
-            <!-- ZRA -->
             <tr>
               <td class="category-cell" rowspan="4">ZRA</td>
               <td class="service-cell">Registration</td>
@@ -1350,7 +1399,6 @@
               <td class="amount-cell">K1,000</td>
             </tr>
 
-            <!-- NAPSA -->
             <tr>
               <td class="category-cell" rowspan="3">NAPSA</td>
               <td class="service-cell">Individual Registration</td>
@@ -1365,7 +1413,6 @@
               <td class="amount-cell">K250</td>
             </tr>
 
-            <!-- ZPPA -->
             <tr>
               <td class="category-cell" rowspan="2">ZPPA</td>
               <td class="service-cell">New Registrations</td>
@@ -1376,7 +1423,6 @@
               <td class="amount-cell">K650</td>
             </tr>
 
-            <!-- WORKERS COMPENSATION -->
             <tr>
               <td class="category-cell" rowspan="2">Workers Comp</td>
               <td class="service-cell">New Registration</td>
@@ -1387,7 +1433,6 @@
               <td class="amount-cell">K1,000</td>
             </tr>
 
-            <!-- NHIMA -->
             <tr>
               <td class="category-cell" rowspan="3">NHIMA</td>
               <td class="service-cell">Individual Registration</td>
@@ -1402,7 +1447,6 @@
               <td class="amount-cell">K50 / Emp</td>
             </tr>
 
-            <!-- ONLINE MUSIC DISTRIBUTION -->
             <tr>
               <td class="category-cell">Online Music</td>
               <td class="service-cell">All Streaming Platforms</td>
@@ -1417,7 +1461,6 @@
         <p class="note-text">The stated amounts include both the official registration fees and all applicable service charges.</p>
       </div>
 
-      <!-- STATIC PDF DOWNLOAD ATTACHMENT LINK -->
       <a href="Lisotech_Innovations_Price_List.pdf" download="Lisotech_Innovations_Price_List.pdf" class="btn btn-dl">
         <i class="fa-solid fa-download"></i> Download Price List
       </a>
@@ -1428,83 +1471,53 @@
     </div>
   </div>
 
-  <!-- Custom styled compact footer -->
-    <footer style="background:#0b2545; color:white; padding:4px 8px; text-align:center;">
+  <!-- Footer -->
+  <footer style="background:#0b2545; color:white; padding:8px 8px; text-align:center;" id="animated-footer">
 
-        <!-- Colored Box Social Layout with Vector Emblems inside -->
-        <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 2px;">
-            
-            <!-- Facebook Layout: Blue Background -->
-            <a href="https://www.facebook.com/lisotechinnovations" target="_blank" style="
-                width:85px;
-                height:26px;
-                background-color: #1877F2;
-                border-radius:4px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                gap: 5px;
-                color:white;
-                font-size:10px;
-                font-weight:600;
-                text-decoration:none;">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                Facebook
-            </a>
+    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 2px;">
+        <a href="https://www.facebook.com/lisotechinnovations" target="_blank" style="
+            width:85px; height:26px; background-color: #1877F2; border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+        </a>
 
-            <!-- Instagram Layout: Brand Gradient Background -->
-            <a href="https://www.instagram.com/lisotechinnovations" target="_blank" style="
-                width:85px;
-                height:26px;
-                background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-                border-radius:4px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                gap: 5px;
-                color:white;
-                font-size:10px;
-                font-weight:600;
-                text-decoration:none;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                Instagram
-            </a>
+        <a href="https://www.instagram.com/lisotechinnovations" target="_blank" style="
+            width:85px; height:26px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+        </a>
 
-            <!-- WhatsApp Layout: Dark Green Background with Official Logo -->
-            <a href="https://wa.me/message/NEGCGNOZ4BOHP1" target="_blank" style="
-                width:85px;
-                height:26px;
-                background-color: #128C7E;
-                border-radius:4px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                gap: 5px;
-                color:white;
-                font-size:10px;
-                font-weight:600;
-                text-decoration:none;">
-                <svg width="11" height="11" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.6 66.4 14 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                WhatsApp
-            </a>
+        <a href="https://wa.me/message/NEGCGNOZ4BOHP1" target="_blank" style="
+            width:85px; height:26px; background-color: #128C7E; border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
+            <svg width="11" height="11" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.6 66.4 14 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            WhatsApp
+        </a>
+    </div>
 
-        </div>
-        
-        <div>
-            <p style="margin:1px 0; font-size:11px; opacity:0.95;">
-                © Lisotech Innovations || All Rights Reserved.
-            </p>
-        </div>
+    <!-- Mandatory AdSense Trust Links in Footer -->
+    <div class="footer-policy-links">
+      <button onclick="toggleAboutModal(true)">About Us</button>
+      <span>|</span>
+      <button onclick="togglePrivacyModal(true)">Privacy Policy</button>
+      <span>|</span>
+      <a href="#contact" style="color: #030f20; font-size: 12px; font-weight: 700; text-decoration: underline;">Contact Us</a>
+    </div>
+    
+    <div>
+        <p style="margin:2px 0; font-size:11px; opacity:0.95;">
+            © Lisotech Innovations || All Rights Reserved.
+        </p>
+    </div>
 
-        <div>
-            <p style="margin:1px 0; font-size:11px; opacity:0.95;">
-               <a href="https://lisotech.org" class="hover:text-white transition">Powered by <span>LISOTECH</span></a>
-            </p>
-        </div>
-        
-    </footer>
+    <div>
+        <p style="margin:2px 0; font-size:11px; opacity:0.95;">
+           <a href="https://lisotech.org" style="color: inherit; text-decoration: none;">Powered by <span>LISOTECH</span></a>
+        </p>
+    </div>
+    
+  </footer>
 
-  <!-- Floating Communication Buttons (Resized & Center-Right Positioned) -->
+  <!-- Floating Communication Buttons -->
   <a href="tel:+260974101130" class="floating-phone" title="Call Us">
     <i class="fas fa-phone"></i>
   </a>
@@ -1544,7 +1557,6 @@
       }
     }
 
-    /* Modal Script Functions */
     function toggleModal(show) {
       const modal = document.getElementById("priceModal");
       if (show) {
@@ -1556,7 +1568,28 @@
       }
     }
 
-    /* Booking Modal Scripts */
+    function toggleAboutModal(show) {
+      const modal = document.getElementById("aboutModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    function togglePrivacyModal(show) {
+      const modal = document.getElementById("privacyModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
     function toggleBookingModal(show) {
       const modal = document.getElementById("bookingModal");
       if (show) {
@@ -1574,9 +1607,9 @@
         title: "PACRA Services",
         items: [
           { name: "Business Name", price: "K850" },
-          { name: "Partnership", price: "K1,200" },
-          { name: "Limited Company", price: "K2,750" },
-          { name: "Annual Returns", price: "K450/Y" },
+          { name: "Partnership", price: "K1,500" },
+          { name: "Limited Company", price: "K3,200" },
+          { name: "Annual Returns", price: "K250/Y" },
           { name: "PACRA Printout", price: "K500" }
         ]
       },
@@ -1677,10 +1710,11 @@
       if (!modalContent.contains(event.target)) {
         if (modalId === 'priceModal') toggleModal(false);
         if (modalId === 'bookingModal') toggleBookingModal(false);
+        if (modalId === 'aboutModal') toggleAboutModal(false);
+        if (modalId === 'privacyModal') togglePrivacyModal(false);
       }
     }
 
-    /* Footer Animations */
     function createFlower() {
       const footer = document.getElementById('animated-footer');
       if (!footer) return;
