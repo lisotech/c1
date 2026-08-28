@@ -313,9 +313,29 @@
     .service-card h3 {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: var(--accent-cyan);
       text-align: left;
+    }
+
+    /* Service Item Block Styling */
+    .service-item-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .service-item-block:hover {
+      background: rgba(0, 102, 255, 0.08);
+      border-color: rgba(0, 210, 255, 0.2);
+      color: var(--text-main);
     }
 
     .service-card p {
@@ -1001,67 +1021,68 @@
     <div class="services-grid">
       <div class="service-card">
         <h3>PACRA Services</h3>
-        <p>• Limited Company Setup</p>
-        <p>• Business Name Registration</p>
-        <p>• Annual Returns Filing</p>
-        <p>• Official PACRA Printouts</p>
+        <div class="service-item-block">• Limited Company Setup</div>
+        <div class="service-item-block">• Business Name Registration</div>
+        <div class="service-item-block">• Annual Returns Filing</div>
+        <div class="service-item-block">• Official PACRA Printouts</div>
       </div>
 
       <div class="service-card">
         <h3>ZRA Services</h3>
-        <p>• Tax Payer Registrations</p>
-        <p>• Turnover Tax Returns</p>
-        <p>• PAYE Returns Handling</p>
-        <p>• ZRA Smart Invoice Integration</p>
+        <div class="service-item-block">• Tax Payer Registrations</div>
+        <div class="service-item-block">• Turnover Tax Returns</div>
+        <div class="service-item-block">• PAYE Returns Handling</div>
+        <div class="service-item-block">• ZRA Smart Invoice Integration</div>
       </div>
 
       <div class="service-card">
         <h3>ZPPA Services</h3>
-        <p>• New ZPPA Registrations</p>
-        <p>• Certificate Renewals</p>
+        <div class="service-item-block">• New ZPPA Registrations</div>
+        <div class="service-item-block">• Certificate Renewals</div>
       </div>
 
       <div class="service-card">
         <h3>NAPSA Services</h3>
-        <p>• NAPSA Account Setup</p>
-        <p>• Individual & Company Registrations</p>
-        <p>• Regular Monthly Returns Processing</p>
+        <div class="service-item-block">• Individual Registrations</div>
+        <div class="service-item-block">• Company Registrations</div>
+        <div class="service-item-block">• Regular Monthly Returns Processing</div>
       </div>
 
       <div class="service-card">
         <h3>Worker Compensation</h3>
-        <p>• New Workers Compensation Setup</p>
-        <p>• Annual Certificate Renewals</p>
+        <div class="service-item-block">• New Registration</div>
+        <div class="service-item-block">• Annual Certificate Renewals</div>
       </div>
 
       <div class="service-card">
         <h3>NHIMA Services</h3>
-        <p>• Individual & Company Registrations</p>
-        <p>• Regulatory Compliance & Returns Filing</p>
+        <div class="service-item-block">• Individual Registrations</div>
+        <div class="service-item-block">• Company Registrations</div>
+        <div class="service-item-block">• Regulatory Compliance & Returns Filing</div>
       </div>
 
       <div class="service-card">
         <h3>Company Profiles</h3>
-        <p>Professional corporate branding solutions to elevate your market standing.</p>
+        <div class="service-item-block">Professional corporate branding solutions to elevate your market standing.</div>
       </div>
 
       <div class="service-card">
         <h3>Business Websites</h3>
-        <p>Modern, fully responsive corporate website design and web development solutions.</p>
+        <div class="service-item-block">Modern, fully responsive corporate website design and web development solutions.</div>
       </div>
 
       <div class="service-card">
         <h3>Premium Graphics Design</h3>
-        <p>• Facebook & IG Post Graphics</p>
-        <p>• Social Media Cover Photos</p>
-        <p>• Marketing Flyers & Banners</p>
+        <div class="service-item-block">• Facebook & IG Post Graphics</div>
+        <div class="service-item-block">• Social Media Cover Photos</div>
+        <div class="service-item-block">• Marketing Flyers & Banners</div>
       </div>
 
       <div class="service-card">
         <h3>Social Media Management</h3>
-        <p>• FB Page Creation & Branding</p>
-        <p>• Active Page Management</p>
-        <p>• Website Maintenance & Support</p>
+        <div class="service-item-block">• FB Page Creation & Branding</div>
+        <div class="service-item-block">• Active Page Management</div>
+        <div class="service-item-block">• Website Maintenance & Support</div>
       </div>
     </div>
   </section>
@@ -1211,7 +1232,7 @@
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('napsa')">
             <h4>NAPSA</h4>
-            <p>Account setup & monthly returns</p>
+            <p>Individual & Company registration</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('zppa')">
             <h4>ZPPA</h4>
@@ -1223,14 +1244,14 @@
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('nhima')">
             <h4>NHIMA</h4>
-            <p>Company & personal registration</p>
+            <p>Individual & Company registration</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('software')">
             <h4>Software</h4>
             <p>OS & Office Suite installations</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('digital')">
-            <h4>Digital Services</h4>
+            <h4>Digital Solutions</h4>
             <p>Websites, Profiles & Graphics</p>
           </div>
         </div>
@@ -1319,12 +1340,12 @@
             <!-- NAPSA -->
             <tr>
               <td class="category-cell" rowspan="3">NAPSA</td>
-              <td class="service-cell">Individual</td>
+              <td class="service-cell">Individual Registration</td>
               <td class="amount-cell">K200</td>
             </tr>
             <tr>
-              <td class="service-cell"> Company Reg</td>
-              <td class="amount-cell">K1000</td>
+              <td class="service-cell">Company Registration</td>
+              <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
               <td class="service-cell">Compliance & Returns</td>
@@ -1356,12 +1377,12 @@
             <!-- NHIMA -->
             <tr>
               <td class="category-cell" rowspan="3">NHIMA</td>
-              <td class="service-cell">Company Reg</td>
-              <td class="amount-cell">K1,000</td>
+              <td class="service-cell">Individual Registration</td>
+              <td class="amount-cell">K200</td>
             </tr>
             <tr>
-              <td class="service-cell">Individual Reg</td>
-              <td class="amount-cell">K200</td>
+              <td class="service-cell">Company Registration</td>
+              <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
               <td class="service-cell">Monthly Returns</td>
@@ -1558,9 +1579,9 @@
       napsa: {
         title: "NAPSA Services",
         items: [
-          { name: "Individual Reg", price: "K200" },
-          { name: "Company Reg", price: "K100 / Emp" },
-          { name: "Compliancy & Returns", price: "K500" }
+          { name: "Individual Registration", price: "K200" },
+          { name: "Company Registration", price: "K1,000" },
+          { name: "Compliance & Returns", price: "K250" }
         ]
       },
       zppa: {
@@ -1573,15 +1594,15 @@
       workers: {
         title: "Workers Compensation",
         items: [
-          { name: "New Workers Comp Setup", price: "K1,000" },
+          { name: "New Registration", price: "K1,000" },
           { name: "Annual Certificate Renewal", price: "K1,000" }
         ]
       },
       nhima: {
         title: "NHIMA Services",
         items: [
+          { name: "Individual Registration", price: "K200" },
           { name: "Company Registration", price: "K1,000" },
-          { name: "Personal Registration", price: "K200" },
           { name: "Monthly Returns Filing", price: "K50 / Emp" }
         ]
       },
