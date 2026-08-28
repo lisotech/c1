@@ -843,30 +843,41 @@
       background: #1ebd54;
     }
 
-    /* Floating Communication Buttons */
+    /* Floating Communication Buttons (Resized & Positioned Center-Right) */
     .floating-whatsapp, .floating-telegram, .floating-phone {
       position: fixed;
-      right: 25px;
-      width: 50px;
-      height: 50px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 22px;
+      font-size: 17px;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       z-index: 999;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .floating-whatsapp { bottom: 30px; background: #25D366; font-size: 24px; }
-    .floating-telegram { bottom: 92px; background: #0088cc; }
-    .floating-phone { bottom: 154px; background: #34A853; font-size: 20px; }
+    .floating-whatsapp { 
+      top: calc(50% + 45px); 
+      background: #128C7E; 
+      font-size: 18px; 
+    }
+    .floating-telegram { 
+      top: calc(50% - 5px); 
+      background: #0088cc; 
+    }
+    .floating-phone { 
+      top: calc(50% - 55px); 
+      background: #34A853; 
+      font-size: 16px; 
+    }
 
     .floating-whatsapp:hover, .floating-telegram:hover, .floating-phone:hover {
-      transform: scale(1.15) translateY(-3px);
+      transform: scale(1.15) translateY(-2px);
     }
 
     /* Footer */
@@ -1236,7 +1247,7 @@
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('zppa')">
             <h4>ZPPA</h4>
-            <p>New registration & renewals</p>
+            <p>New registrations & renewals</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('workers')">
             <h4>Workers Comp</h4>
@@ -1251,7 +1262,7 @@
             <p>OS & Office Suite installations</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('digital')">
-            <h4>Digital Solutions</h4>
+            <h4>Digital Services</h4>
             <p>Websites, Profiles & Graphics</p>
           </div>
         </div>
@@ -1355,7 +1366,7 @@
             <!-- ZPPA -->
             <tr>
               <td class="category-cell" rowspan="2">ZPPA</td>
-              <td class="service-cell">New Registration</td>
+              <td class="service-cell">New Registrations</td>
               <td class="amount-cell">K800</td>
             </tr>
             <tr>
@@ -1491,7 +1502,7 @@
         
     </footer>
 
-  <!-- Floating Communication Buttons -->
+  <!-- Floating Communication Buttons (Resized & Center-Right Positioned) -->
   <a href="tel:+260974101130" class="floating-phone" title="Call Us">
     <i class="fas fa-phone"></i>
   </a>
@@ -1560,8 +1571,8 @@
       pacra: {
         title: "PACRA Services",
         items: [
-          { name: "Business Name ", price: "K850" },
-          { name: "Partnership", price: "K1500" },
+          { name: "Business Name", price: "K850" },
+          { name: "Partnership", price: "K1,500" },
           { name: "Limited Company", price: "K3,200" },
           { name: "Annual Returns", price: "K250/Y" },
           { name: "PACRA Printout", price: "K500" }
@@ -1587,8 +1598,8 @@
       zppa: {
         title: "ZPPA Services",
         items: [
-          { name: "New ZPPA Registration", price: "K900" },
-          { name: "Certificate Renewal", price: "K600" }
+          { name: "New Registrations", price: "K800" },
+          { name: "Certificate Renewal", price: "K650" }
         ]
       },
       workers: {
