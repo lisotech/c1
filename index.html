@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-8584028948447766">
@@ -450,6 +451,129 @@
       transform: translateY(-1px);
     }
 
+    /* Service Packages Section Styling */
+    .packages-container {
+      background: #000000;
+      padding: 60px 5%;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 50px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .package-card {
+      background: #0b172c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .package-card.highlighted {
+      border: 2px solid #25D366;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+    }
+
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .package-tier {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .package-price-area {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .package-price-area span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .package-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex-grow: 1;
+    }
+
+    .package-features li {
+      font-size: 14px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-features li::before {
+      content: "•";
+      color: #25D366;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .package-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: #111e38;
+      color: #ffffff;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .package-card.highlighted .package-btn {
+      background: #25D366;
+      color: #030f20;
+      border: none;
+    }
+
+    .package-btn:hover {
+      background: #25D366;
+      color: #030f20;
+    }
+
     /* Contact Section */
     .contact-box {
       background: var(--card-bg);
@@ -568,7 +692,6 @@
       transform: translateY(0) scale(1);
     }
 
-    /* Custom Scrollbar for Modal */
     .modal-content::-webkit-scrollbar {
       width: 4px;
     }
@@ -859,7 +982,7 @@
       background: #1ebd54;
     }
 
-    /* Floating Communication Buttons (Resized & Positioned Center-Right) */
+    /* Floating Communication Buttons */
     .floating-whatsapp, .floating-telegram, .floating-phone {
       position: fixed;
       right: 20px;
@@ -1008,6 +1131,7 @@
           <li><a href="#home" onclick="toggleMenu()">Home</a></li>
           <li><a href="#services" onclick="toggleMenu()">Services</a></li>
           <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
+          <li><a href="#packages" onclick="toggleMenu()">Packages</a></li>
           <li><button onclick="toggleAboutModal(true); toggleMenu();">About Us</button></li>
           <li><button onclick="togglePrivacyModal(true); toggleMenu();">Privacy Policy</button></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
@@ -1192,6 +1316,66 @@
           <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn">
             <i class="fas fa-arrow-right"></i> Proceed to Order
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Packages Section (Added before Contact Form) -->
+  <section id="packages">
+    <div class="section-title">
+      <h2>Service packages</h2>
+      <p>Choose the ideal bundle to kickstart or accelerate your enterprise journey</p>
+    </div>
+
+    <div class="packages-container">
+      <div class="packages-grid">
+        <!-- Starter Package -->
+        <div class="package-card">
+          <div>
+            <div class="package-tier">Starter</div>
+            <div class="package-price-area">K2,500 <span>once-off</span></div>
+            <p class="package-desc">For businesses just getting their identity off the ground.</p>
+            <ul class="package-features">
+              <li>Logo Design</li>
+              <li>Business Card Design</li>
+              <li>Flyer Design</li>
+              <li>One-Page Website</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Starter%20Package%20(K2,500)." target="_blank" class="package-btn">Get Started</a>
+        </div>
+
+        <!-- Business Growth Package -->
+        <div class="package-card highlighted">
+          <div>
+            <div class="package-tier">Business Growth</div>
+            <div class="package-price-area">K5,000 <span>once-off</span></div>
+            <p class="package-desc">Our most popular package for growing businesses.</p>
+            <ul class="package-features">
+              <li>Logo & Brand Identity</li>
+              <li>Company Profile</li>
+              <li>Professional Website</li>
+              <li>10 Social Media Designs</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Business%20Growth%20Package%20(K5,000)." target="_blank" class="package-btn">Get Started</a>
+        </div>
+
+        <!-- Premium Package -->
+        <div class="package-card">
+          <div>
+            <div class="package-tier">Premium</div>
+            <div class="package-price-area">K10,000+ <span>once-off</span></div>
+            <p class="package-desc">Full-service brand build for established businesses.</p>
+            <ul class="package-features">
+              <li>Full Brand Identity</li>
+              <li>Corporate Website</li>
+              <li>Photography & Content</li>
+              <li>Marketing Strategy</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Premium%20Package%20(K10,000+)." target="_blank" class="package-btn">Get Started</a>
         </div>
       </div>
     </div>
