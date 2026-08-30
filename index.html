@@ -1760,11 +1760,67 @@
     </div>
   </div>
 
+  <!-- PRIVACY POLICY MODAL -->
+  <div id="privacyModal" class="modal" onclick="closeModalOutside(event, 'privacyModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleInfoModal('privacyModal', false)">&times;</span>
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Legal:</strong> Privacy Policy</span>
+        </div>
+      </div>
+      <h2>Privacy Policy</h2>
+      <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+        <p>At Lisotech Innovations, accessible from lisotech.space and our digital service desks, we respect your privacy and are committed to protecting any personal data you share with us.</p>
+        <p><strong>Information We Collect:</strong> We collect necessary business registration particulars, company names, contact numbers (such as WhatsApp/Phone info), and email details explicitly submitted by clients to process official filings like PACRA, ZRA, and NAPSA.</p>
+        <p><strong>Usage of Data:</strong> Collected information is used strictly to execute requested corporate services, build websites, or facilitate software setups. We do not sell, rent, or trade your personal or business records to third parties.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE MODAL -->
+  <div id="termsModal" class="modal" onclick="closeModalOutside(event, 'termsModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleInfoModal('termsModal', false)">&times;</span>
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Legal:</strong> Terms of Service</span>
+        </div>
+      </div>
+      <h2>Terms of Service</h2>
+      <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+        <p>By engaging with Lisotech Innovations, you agree to comply with and be bound by the following terms and conditions.</p>
+        <p><strong>Services & Payments:</strong> All service quotes include professional handling charges alongside statutory regulatory fees where applicable. Service fulfillment begins upon confirmation of order processing or upfront payment agreement.</p>
+        <p><strong>Deliverables:</strong> Digital solutions, web layouts, and regulatory compliance documents are provided promptly as scheduled per package specifics or agreement terms.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT US MODAL -->
+  <div id="aboutModal" class="modal" onclick="closeModalOutside(event, 'aboutModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleInfoModal('aboutModal', false)">&times;</span>
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Corporate:</strong> About Us</span>
+        </div>
+      </div>
+      <h2>About Lisotech Innovations</h2>
+      <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+        <p>Lisotech Innovations is a premier business compliance, digital marketing, and web development firm based in Lusaka, Zambia.</p>
+        <p>We empower startups, growing enterprises, and established institutions with robust technology services—ranging from PACRA, ZRA, NAPSA, and NHIMA compliance handling to high-impact corporate website design, software setups, and custom digital tools.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Custom styled compact footer -->
-  <footer style="background:#0b2545; color:white; padding:4px 8px; text-align:center;" id="animated-footer">
+  <footer style="background:#0b2545; color:white; padding:15px 8px; text-align:center;" id="animated-footer">
 
       <!-- Colored Box Social Layout with Vector Emblems inside -->
-      <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 2px;">
+      <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 8px;">
           
           <!-- Facebook Layout: Blue Background -->
           <a href="https://www.facebook.com/lisotechinnovations" target="_blank" style="
@@ -1821,6 +1877,15 @@
           </a>
 
       </div>
+
+      <!-- Footer Navigation Links Bar (Privacy, Terms, About us) -->
+      <div style="display:flex; justify-content:center; gap:18px; margin-bottom:8px; font-size:12px; font-weight:600; position:relative; z-index:2;">
+          <a href="javascript:void(0);" onclick="toggleInfoModal('privacyModal', true)" style="color:#00d2ff; text-decoration:none;">Privacy</a>
+          <span style="color:rgba(255,255,255,0.3);">|</span>
+          <a href="javascript:void(0);" onclick="toggleInfoModal('termsModal', true)" style="color:#00d2ff; text-decoration:none;">Terms</a>
+          <span style="color:rgba(255,255,255,0.3);">|</span>
+          <a href="javascript:void(0);" onclick="toggleInfoModal('aboutModal', true)" style="color:#00d2ff; text-decoration:none;">About us</a>
+      </div>
       
       <div>
           <p style="margin:1px 0; font-size:11px; opacity:0.95;">
@@ -1830,7 +1895,7 @@
 
       <div>
           <p style="margin:1px 0; font-size:11px; opacity:0.95;">
-             <a href="https://lisotech.org" class="hover:text-white transition">Powered by <span>LISOTECH</span></a>
+             <a href="https://lisotech.org" style="color:inherit; text-decoration:none;">Powered by <span>LISOTECH</span></a>
           </p>
       </div>
       
@@ -1879,6 +1944,18 @@
     /* Modal Script Functions */
     function toggleModal(show) {
       const modal = document.getElementById("priceModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    /* Generic Info Modals (Privacy, Terms, About Us) */
+    function toggleInfoModal(modalId, show) {
+      const modal = document.getElementById(modalId);
       if (show) {
         modal.classList.add("active");
         document.body.style.overflow = "hidden";
@@ -2009,6 +2086,9 @@
       if (!modalContent.contains(event.target)) {
         if (modalId === 'priceModal') toggleModal(false);
         if (modalId === 'bookingModal') toggleBookingModal(false);
+        if (modalId === 'privacyModal') toggleInfoModal('privacyModal', false);
+        if (modalId === 'termsModal') toggleInfoModal('termsModal', false);
+        if (modalId === 'aboutModal') toggleInfoModal('aboutModal', false);
       }
     }
 
