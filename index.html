@@ -581,6 +581,61 @@
       transform: translateY(-2px);
     }
 
+    /* FAQ Section Styles */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .faq-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .faq-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(0, 102, 255, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .faq-icon {
+      font-size: 24px;
+      color: var(--accent-cyan);
+      background: rgba(0, 210, 255, 0.1);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .faq-content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .faq-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
     /* Contact Section */
     .contact-box {
       background: var(--card-bg);
@@ -1121,6 +1176,7 @@
           <li><a href="#services" onclick="toggleMenu()">Services</a></li>
           <li><a href="#packages" onclick="toggleMenu()">Packages</a></li>
           <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
+          <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
@@ -1402,6 +1458,64 @@
           <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn">
             <i class="fas fa-arrow-right"></i> Proceed to Order
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section Added Before Contact -->
+  <section id="faq">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+      <p>Got questions? We've got answers to help you get started</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>How can I register my company with PACRA through LISOTECH?</h3>
+          <p>We guide you through the PACRA registration process, ensuring all documents are correctly submitted for swift approval.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>What support does LISOTECH provide for NAPSA and ZRA filings?</h3>
+          <p>Our experts handle NAPSA and ZRA filings accurately and on time, keeping your business compliant with regulations.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>Can LISOTECH help set up a professional company email?</h3>
+          <p>Yes, we offer seamless company email setup tailored to your business needs for enhanced communication.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>Does LISOTECH assist with website creation?</h3>
+          <p>Absolutely, our team creates professional and effective websites designed to grow your online presence.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>What types of company compliance services are available?</h3>
+          <p>We provide comprehensive compliance services, including returns filing and adherence to corporate governance standards.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-icon"><i class="fas fa-question"></i></div>
+        <div class="faq-content">
+          <h3>How do I contact LISOTECH for support?</h3>
+          <p>You can reach our support team via email or phone for prompt assistance with any inquiries or services.</p>
         </div>
       </div>
     </div>
