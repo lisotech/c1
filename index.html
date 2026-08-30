@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8584028948447766"
-     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-8584028948447766">
   <title>LISOTECH INNOVATIONS | Modern Business & Digital Solutions</title>
 
   <!-- Favicon -->
@@ -126,7 +126,7 @@
       pointer-events: auto;
     }
 
-    nav ul li a, nav ul li button {
+    nav ul li a {
       color: var(--text-main);
       text-decoration: none;
       font-size: 15px;
@@ -136,14 +136,9 @@
       display: block;
       padding: 10px 14px;
       border-radius: 8px;
-      background: transparent;
-      border: none;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
     }
 
-    nav ul li a:hover, nav ul li button:hover {
+    nav ul li a:hover {
       background: rgba(0, 102, 255, 0.15);
       color: var(--accent-cyan);
       transform: translateX(3px);
@@ -318,29 +313,9 @@
     .service-card h3 {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: var(--accent-cyan);
       text-align: left;
-    }
-
-    /* Service Item Block Styling */
-    .service-item-block {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 10px 14px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      text-align: left;
-      transition: all 0.2s ease;
-    }
-
-    .service-item-block:hover {
-      background: rgba(0, 102, 255, 0.08);
-      border-color: rgba(0, 210, 255, 0.2);
-      color: var(--text-main);
     }
 
     .service-card p {
@@ -433,7 +408,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #25D366;
+      background: var(--primary);
       color: white;
       padding: 9px 16px;
       border-radius: 8px;
@@ -447,131 +422,138 @@
     }
 
     .proceed-btn:hover {
-      background: #1ebd54;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
       transform: translateY(-1px);
     }
 
-    /* Service Packages Section Styling */
-    .packages-container {
-      background: #000000;
-      padding: 60px 5%;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 50px;
-    }
-
+    /* Service Packages Section */
     .packages-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
       align-items: stretch;
+      margin-bottom: 60px;
     }
 
     .package-card {
-      background: #0b172c;
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 30px 24px;
+      transition: all 0.35s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s ease;
       position: relative;
+      text-align: left;
     }
 
-    .package-card.highlighted {
-      border: 2px solid #25D366;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+    .package-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px rgba(0, 102, 255, 0.15);
     }
 
     .package-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      transform: translateY(-8px);
+      background: var(--card-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .package-tier {
-      font-size: 12px;
+    .package-tag {
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #ffffff;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
       margin-bottom: 12px;
       text-transform: uppercase;
     }
 
-    .package-price-area {
-      font-size: 32px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 8px;
+    .package-price-container {
       display: flex;
-      align-items: baseline;
+      align-baseline: baseline;
       gap: 8px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
     }
 
-    .package-price-area span {
-      font-size: 13px;
-      font-weight: 500;
+    .package-price {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+
+    .package-term {
+      font-size: 14px;
       color: var(--text-muted);
+      font-weight: 600;
+      align-self: center;
     }
 
     .package-desc {
-      font-size: 13.5px;
+      font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.6;
       margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.6;
     }
 
-    .package-features {
+    .package-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .package-features-list {
       list-style: none;
-      margin-bottom: 30px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      flex-grow: 1;
+      gap: 12px;
+      margin-bottom: 30px;
     }
 
-    .package-features li {
+    .package-features-list li {
       font-size: 14px;
-      color: var(--text-main);
+      color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .package-features li::before {
-      content: "•";
-      color: #25D366;
-      font-weight: bold;
-      font-size: 18px;
+    .package-features-list li i {
+      color: var(--accent-cyan);
+      font-size: 12px;
     }
 
     .package-btn {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       padding: 14px;
-      background: #111e38;
-      color: #ffffff;
-      text-align: center;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 700;
       font-size: 14px;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      color: var(--text-main);
       cursor: pointer;
     }
 
-    .package-card.highlighted .package-btn {
-      background: #25D366;
-      color: #030f20;
+    .package-card.featured .package-btn {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      color: white;
       border: none;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
     }
 
     .package-btn:hover {
-      background: #25D366;
-      color: #030f20;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
     }
 
     /* Contact Section */
@@ -754,18 +736,6 @@
       text-align: left;
     }
 
-    .modal-body-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 12px;
-      text-align: left;
-    }
-
-    .modal-body-text strong {
-      color: var(--text-main);
-    }
-
     .table-responsive-wrapper {
       width: 100%;
       overflow-x: hidden;
@@ -821,7 +791,7 @@
     .amount-cell {
       text-align: right;
       font-weight: 600;
-      color: #25D366;
+      color: var(--accent-cyan);
       width: 25%;
       padding-right: 12px;
     }
@@ -961,13 +931,13 @@
     .service-option-info span {
       display: block;
       font-size: 11px;
-      color: #25D366;
+      color: var(--accent-cyan);
       font-weight: 700;
       margin-top: 2px;
     }
 
     .book-now-action-btn {
-      background: #25D366;
+      background: var(--primary);
       color: white;
       text-decoration: none;
       padding: 6px 12px;
@@ -979,67 +949,61 @@
     }
 
     .book-now-action-btn:hover {
-      background: #1ebd54;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
     }
 
     /* Floating Communication Buttons */
     .floating-whatsapp, .floating-telegram, .floating-phone {
       position: fixed;
-      right: 20px;
-      width: 40px;
-      height: 40px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 17px;
+      font-size: 22px;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       z-index: 999;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .floating-whatsapp { 
-      top: calc(50% + 45px); 
-      background: #128C7E; 
-      font-size: 18px; 
-    }
-    .floating-telegram { 
-      top: calc(50% - 5px); 
-      background: #0088cc; 
-    }
-    .floating-phone { 
-      top: calc(50% - 55px); 
-      background: #34A853; 
-      font-size: 16px; 
-    }
+    .floating-whatsapp { bottom: 30px; background: #25D366; font-size: 24px; }
+    .floating-telegram { bottom: 92px; background: #0088cc; }
+    .floating-phone { bottom: 154px; background: #34A853; font-size: 20px; }
 
     .floating-whatsapp:hover, .floating-telegram:hover, .floating-phone:hover {
-      transform: scale(1.15) translateY(-2px);
+      transform: scale(1.15) translateY(-3px);
     }
 
-    /* Footer Links Style */
-    .footer-policy-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 8px 0;
-    }
-
-    .footer-policy-links button {
-      background: none;
-      border: none;
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
       color: #030f20;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: underline;
-      padding: 0;
+      padding: 25px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid var(--accent-cyan);
     }
 
-    .footer-policy-links button:hover {
-      color: var(--primary);
+    footer p {
+      font-size: 14px;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    footer marquee {
+      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+      color: #030f20;
     }
 
     .falling-flower {
@@ -1130,10 +1094,8 @@
         <ul id="menu">
           <li><a href="#home" onclick="toggleMenu()">Home</a></li>
           <li><a href="#services" onclick="toggleMenu()">Services</a></li>
-          <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
           <li><a href="#packages" onclick="toggleMenu()">Packages</a></li>
-          <li><button onclick="toggleAboutModal(true); toggleMenu();">About Us</button></li>
-          <li><button onclick="togglePrivacyModal(true); toggleMenu();">Privacy Policy</button></li>
+          <li><a href="#computer-software" onclick="toggleMenu()">Computer Software</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
@@ -1169,68 +1131,137 @@
     <div class="services-grid">
       <div class="service-card">
         <h3>PACRA Services</h3>
-        <div class="service-item-block">• Limited Company Setup</div>
-        <div class="service-item-block">• Business Name Registration</div>
-        <div class="service-item-block">• Annual Returns Filing</div>
-        <div class="service-item-block">• Official PACRA Printouts</div>
+        <p>• Limited Company Setup</p>
+        <p>• Business Name Registration</p>
+        <p>• Annual Returns Filing</p>
+        <p>• Official PACRA Printouts</p>
       </div>
 
       <div class="service-card">
         <h3>ZRA Services</h3>
-        <div class="service-item-block">• Tax Payer Registrations</div>
-        <div class="service-item-block">• Turnover Tax Returns</div>
-        <div class="service-item-block">• PAYE Returns Handling</div>
-        <div class="service-item-block">• ZRA Smart Invoice Integration</div>
+        <p>• Tax Payer Registrations</p>
+        <p>• Turnover Tax Returns</p>
+        <p>• PAYE Returns Handling</p>
+        <p>• ZRA Smart Invoice Integration</p>
       </div>
 
       <div class="service-card">
         <h3>ZPPA Services</h3>
-        <div class="service-item-block">• New Registrations</div>
-        <div class="service-item-block">• Certificate Renewals</div>
+        <p>• New ZPPA Registrations</p>
+        <p>• Certificate Renewals</p>
       </div>
 
       <div class="service-card">
         <h3>NAPSA Services</h3>
-        <div class="service-item-block">• Individual Registrations</div>
-        <div class="service-item-block">• Company Registrations</div>
-        <div class="service-item-block">• Regular Monthly Returns Processing</div>
+        <p>• NAPSA Account Setup</p>
+        <p>• Individual & Company Registrations</p>
+        <p>• Regular Monthly Returns Processing</p>
       </div>
 
       <div class="service-card">
         <h3>Worker Compensation</h3>
-        <div class="service-item-block">• New Registration</div>
-        <div class="service-item-block">• Annual Certificate Renewals</div>
+        <p>• New Workers Compensation Setup</p>
+        <p>• Annual Certificate Renewals</p>
       </div>
 
       <div class="service-card">
         <h3>NHIMA Services</h3>
-        <div class="service-item-block">• Individual Registrations</div>
-        <div class="service-item-block">• Company Registrations</div>
-        <div class="service-item-block">• Regulatory Compliance & Returns Filing</div>
+        <p>• Individual & Company Registrations</p>
+        <p>• Regulatory Compliance & Returns Filing</p>
       </div>
 
       <div class="service-card">
         <h3>Company Profiles</h3>
-        <div class="service-item-block">Professional corporate branding solutions to elevate your market standing.</div>
+        <p>Professional corporate branding solutions to elevate your market standing.</p>
       </div>
 
       <div class="service-card">
         <h3>Business Websites</h3>
-        <div class="service-item-block">Modern, fully responsive corporate website design and web development solutions.</div>
+        <p>Modern, fully responsive corporate website design and web development solutions.</p>
       </div>
 
       <div class="service-card">
         <h3>Premium Graphics Design</h3>
-        <div class="service-item-block">• Facebook & IG Post Graphics</div>
-        <div class="service-item-block">• Social Media Cover Photos</div>
-        <div class="service-item-block">• Marketing Flyers & Banners</div>
+        <p>• Facebook & IG Post Graphics</p>
+        <p>• Social Media Cover Photos</p>
+        <p>• Marketing Flyers & Banners</p>
       </div>
 
       <div class="service-card">
         <h3>Social Media Management</h3>
-        <div class="service-item-block">• FB Page Creation & Branding</div>
-        <div class="service-item-block">• Active Page Management</div>
-        <div class="service-item-block">• Website Maintenance & Support</div>
+        <p>• FB Page Creation & Branding</p>
+        <p>• Active Page Management</p>
+        <p>• Website Maintenance & Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Packages Section -->
+  <section id="packages">
+    <div class="section-title">
+      <h2>Service packages</h2>
+      <p>Choose the right bundle to scale your business operations</p>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Starter Package -->
+      <div class="package-card">
+        <div>
+          <div class="package-tag">Starter</div>
+          <div class="package-price-container">
+            <span class="package-price">K2,500</span>
+            <span class="package-term">once-off</span>
+          </div>
+          <p class="package-desc">For businesses just getting their identity off the ground.</p>
+          <div class="package-divider"></div>
+          <ul class="package-features-list">
+            <li><i class="fas fa-check"></i> Logo Design</li>
+            <li><i class="fas fa-check"></i> Business Card Design</li>
+            <li><i class="fas fa-check"></i> Flyer Design</li>
+            <li><i class="fas fa-check"></i> One-Page Website</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20am%20interested%20in%20the%20Starter%20Package%20(K2,500)." target="_blank" class="package-btn">Get Started</a>
+      </div>
+
+      <!-- Business Growth Package (Featured) -->
+      <div class="package-card featured">
+        <div>
+          <div class="package-tag">Business Growth</div>
+          <div class="package-price-container">
+            <span class="package-price">K5,000</span>
+            <span class="package-term">once-off</span>
+          </div>
+          <p class="package-desc">Our most popular package for growing businesses.</p>
+          <div class="package-divider"></div>
+          <ul class="package-features-list">
+            <li><i class="fas fa-check"></i> Logo & Brand Identity</li>
+            <li><i class="fas fa-check"></i> Company Profile</li>
+            <li><i class="fas fa-check"></i> Professional Website</li>
+            <li><i class="fas fa-check"></i> 10 Social Media Designs</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20am%20interested%20in%20the%20Business%20Growth%20Package%20(K5,000)." target="_blank" class="package-btn">Get Started</a>
+      </div>
+
+      <!-- Premium Package -->
+      <div class="package-card">
+        <div>
+          <div class="package-tag">Premium</div>
+          <div class="package-price-container">
+            <span class="package-price">K10,000+</span>
+            <span class="package-term">once-off</span>
+          </div>
+          <p class="package-desc">Full-service brand build for established businesses.</p>
+          <div class="package-divider"></div>
+          <ul class="package-features-list">
+            <li><i class="fas fa-check"></i> Full Brand Identity</li>
+            <li><i class="fas fa-check"></i> Corporate Website</li>
+            <li><i class="fas fa-check"></i> Photography & Content</li>
+            <li><i class="fas fa-check"></i> Marketing Strategy</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20am%20interested%20in%20the%20Premium%20Package%20(K10,000+)." target="_blank" class="package-btn">Get Started</a>
       </div>
     </div>
   </section>
@@ -1243,6 +1274,7 @@
     </div>
 
     <div class="services-grid">
+      <!-- Consolidated Card 1: Operating Systems -->
       <div class="service-card">
         <div>
           <h3>Computer OS Installation & Activation</h3>
@@ -1284,6 +1316,7 @@
         </div>
       </div>
 
+      <!-- Consolidated Card 2: Microsoft Office -->
       <div class="service-card">
         <div>
           <h3>Microsoft Office Suite Services</h3>
@@ -1298,6 +1331,7 @@
         </div>
       </div>
 
+      <!-- Consolidated Card 3: Utility Assets -->
       <div class="service-card">
         <div>
           <h3>System Optimization & Utilities</h3>
@@ -1316,66 +1350,6 @@
           <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn">
             <i class="fas fa-arrow-right"></i> Proceed to Order
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Packages Section (Added before Contact Form) -->
-  <section id="packages">
-    <div class="section-title">
-      <h2>Service packages</h2>
-      <p>Choose the ideal bundle to kickstart or accelerate your enterprise journey</p>
-    </div>
-
-    <div class="packages-container">
-      <div class="packages-grid">
-        <!-- Starter Package -->
-        <div class="package-card">
-          <div>
-            <div class="package-tier">Starter</div>
-            <div class="package-price-area">K2,500 <span>once-off</span></div>
-            <p class="package-desc">For businesses just getting their identity off the ground.</p>
-            <ul class="package-features">
-              <li>Logo Design</li>
-              <li>Business Card Design</li>
-              <li>Flyer Design</li>
-              <li>One-Page Website</li>
-            </ul>
-          </div>
-          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Starter%20Package%20(K2,500)." target="_blank" class="package-btn">Get Started</a>
-        </div>
-
-        <!-- Business Growth Package -->
-        <div class="package-card highlighted">
-          <div>
-            <div class="package-tier">Business Growth</div>
-            <div class="package-price-area">K5,000 <span>once-off</span></div>
-            <p class="package-desc">Our most popular package for growing businesses.</p>
-            <ul class="package-features">
-              <li>Logo & Brand Identity</li>
-              <li>Company Profile</li>
-              <li>Professional Website</li>
-              <li>10 Social Media Designs</li>
-            </ul>
-          </div>
-          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Business%20Growth%20Package%20(K5,000)." target="_blank" class="package-btn">Get Started</a>
-        </div>
-
-        <!-- Premium Package -->
-        <div class="package-card">
-          <div>
-            <div class="package-tier">Premium</div>
-            <div class="package-price-area">K10,000+ <span>once-off</span></div>
-            <p class="package-desc">Full-service brand build for established businesses.</p>
-            <ul class="package-features">
-              <li>Full Brand Identity</li>
-              <li>Corporate Website</li>
-              <li>Photography & Content</li>
-              <li>Marketing Strategy</li>
-            </ul>
-          </div>
-          <a href="https://wa.me/260974101130?text=Hello%20Lisotech,%20I%20am%20interested%20in%20the%20Premium%20Package%20(K10,000+)." target="_blank" class="package-btn">Get Started</a>
         </div>
       </div>
     </div>
@@ -1423,6 +1397,7 @@
 
       <h2>Quick Service Booking</h2>
 
+      <!-- Category Selection View -->
       <div id="bookingCategoriesView">
         <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Choose a category below to explore individual services and book instantly via WhatsApp:</p>
         <div class="booking-menu-grid">
@@ -1436,11 +1411,11 @@
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('napsa')">
             <h4>NAPSA</h4>
-            <p>Individual & Company registration</p>
+            <p>Account setup & monthly returns</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('zppa')">
             <h4>ZPPA</h4>
-            <p>New registrations & renewals</p>
+            <p>New registration & renewals</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('workers')">
             <h4>Workers Comp</h4>
@@ -1448,7 +1423,7 @@
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('nhima')">
             <h4>NHIMA</h4>
-            <p>Individual & Company registration</p>
+            <p>Company & personal registration</p>
           </div>
           <div class="booking-category-card" onclick="showBookingOptions('software')">
             <h4>Software</h4>
@@ -1461,6 +1436,7 @@
         </div>
       </div>
 
+      <!-- Specific Services Listing View -->
       <div id="bookingServicesView" class="booking-services-view">
         <button class="back-to-categories" onclick="backToCategoriesView()">
           <i class="fas fa-arrow-left"></i> Back to Categories
@@ -1469,49 +1445,6 @@
         <div id="serviceOptionsList"></div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- ABOUT US MODAL -->
-  <div id="aboutModal" class="modal" onclick="closeModalOutside(event, 'aboutModal')">
-    <div class="modal-content">
-      <span class="close-btn" onclick="toggleAboutModal(false)">&times;</span>
-      <div class="modal-brand-header">
-        <h3>LISOTECH INNOVATIONS</h3>
-        <div class="modal-contact-line">
-          <span><strong>About Us</strong></span>
-        </div>
-      </div>
-      <h2>Who We Are</h2>
-      <p class="modal-body-text">
-        <strong>LISOTECH INNOVATIONS</strong> is a premier business registration, compliance, and digital solutions provider based in Lusaka, Zambia. We empower small to large enterprises by handling bureaucratic processes efficiently—ranging from PACRA business creations, ZRA tax returns and smart invoice setups, to NAPSA, ZPPA, Workers Compensation, and NHIMA compliance.
-      </p>
-      <p class="modal-body-text">
-        Beyond corporate compliance, we specialize in high-impact digital solutions, including responsive business website design, striking corporate branding, professional company profiles, software architecture installations, and social media management to help brands thrive in a digital economy.
-      </p>
-    </div>
-  </div>
-
-  <!-- PRIVACY POLICY MODAL -->
-  <div id="privacyModal" class="modal" onclick="closeModalOutside(event, 'privacyModal')">
-    <div class="modal-content">
-      <span class="close-btn" onclick="togglePrivacyModal(false)">&times;</span>
-      <div class="modal-brand-header">
-        <h3>LISOTECH INNOVATIONS</h3>
-        <div class="modal-contact-line">
-          <span><strong>Privacy Policy</strong></span>
-        </div>
-      </div>
-      <h2>Privacy & Cookie Statement</h2>
-      <p class="modal-body-text">
-        At Lisotech Innovations, accessible from our official channels, protecting your personal data is a top priority. This Privacy Policy document outlines the types of information we collect and how we utilize it.
-      </p>
-      <p class="modal-body-text">
-        <strong>Information We Collect:</strong> When you contact us or request business registration services, we may collect direct personal info such as your name, email address, phone number, company information, and necessary identification documents required strictly for statutory processing (PACRA/ZRA/NAPSA).
-      </p>
-      <p class="modal-body-text">
-        <strong>Advertising Partners & Cookies:</strong> We may use third-party vendors, including Google AdSense, which use cookies to serve ads based on a user's prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Ads Settings.
-      </p>
     </div>
   </div>
 
@@ -1541,6 +1474,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- PACRA -->
             <tr>
               <td class="category-cell" rowspan="4">PACRA</td>
               <td class="service-cell">Business Name</td>
@@ -1563,6 +1497,7 @@
               <td class="amount-cell">K500</td>
             </tr>
 
+            <!-- ZRA -->
             <tr>
               <td class="category-cell" rowspan="4">ZRA</td>
               <td class="service-cell">Registration</td>
@@ -1581,23 +1516,25 @@
               <td class="amount-cell">K1,000</td>
             </tr>
 
+            <!-- NAPSA -->
             <tr>
               <td class="category-cell" rowspan="3">NAPSA</td>
-              <td class="service-cell">Individual Registration</td>
+              <td class="service-cell">Individual</td>
               <td class="amount-cell">K200</td>
             </tr>
             <tr>
-              <td class="service-cell">Company Registration</td>
-              <td class="amount-cell">K1,000</td>
+              <td class="service-cell"> Company Reg</td>
+              <td class="amount-cell">K1000</td>
             </tr>
             <tr>
               <td class="service-cell">Compliance & Returns</td>
               <td class="amount-cell">K250</td>
             </tr>
 
+            <!-- ZPPA -->
             <tr>
               <td class="category-cell" rowspan="2">ZPPA</td>
-              <td class="service-cell">New Registrations</td>
+              <td class="service-cell">New Registration</td>
               <td class="amount-cell">K800</td>
             </tr>
             <tr>
@@ -1605,6 +1542,7 @@
               <td class="amount-cell">K650</td>
             </tr>
 
+            <!-- WORKERS COMPENSATION -->
             <tr>
               <td class="category-cell" rowspan="2">Workers Comp</td>
               <td class="service-cell">New Registration</td>
@@ -1615,20 +1553,22 @@
               <td class="amount-cell">K1,000</td>
             </tr>
 
+            <!-- NHIMA -->
             <tr>
               <td class="category-cell" rowspan="3">NHIMA</td>
-              <td class="service-cell">Individual Registration</td>
-              <td class="amount-cell">K200</td>
+              <td class="service-cell">Company Reg</td>
+              <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
-              <td class="service-cell">Company Registration</td>
-              <td class="amount-cell">K1,000</td>
+              <td class="service-cell">Individual Reg</td>
+              <td class="amount-cell">K200</td>
             </tr>
             <tr>
               <td class="service-cell">Monthly Returns</td>
               <td class="amount-cell">K50 / Emp</td>
             </tr>
 
+            <!-- ONLINE MUSIC DISTRIBUTION -->
             <tr>
               <td class="category-cell">Online Music</td>
               <td class="service-cell">All Streaming Platforms</td>
@@ -1643,6 +1583,7 @@
         <p class="note-text">The stated amounts include both the official registration fees and all applicable service charges.</p>
       </div>
 
+      <!-- STATIC PDF DOWNLOAD ATTACHMENT LINK -->
       <a href="Lisotech_Innovations_Price_List.pdf" download="Lisotech_Innovations_Price_List.pdf" class="btn btn-dl">
         <i class="fa-solid fa-download"></i> Download Price List
       </a>
@@ -1653,51 +1594,81 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer style="background:#0b2545; color:white; padding:8px 8px; text-align:center;" id="animated-footer">
+  <!-- Custom styled compact footer -->
+    <footer style="background:#0b2545; color:white; padding:4px 8px; text-align:center;" id="animated-footer">
 
-    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 2px;">
-        <a href="https://www.facebook.com/lisotechinnovations" target="_blank" style="
-            width:85px; height:26px; background-color: #1877F2; border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Facebook
-        </a>
+        <!-- Colored Box Social Layout with Vector Emblems inside -->
+        <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom: 2px;">
+            
+            <!-- Facebook Layout: Blue Background -->
+            <a href="https://www.facebook.com/lisotechinnovations" target="_blank" style="
+                width:85px;
+                height:26px;
+                background-color: #1877F2;
+                border-radius:4px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                gap: 5px;
+                color:white;
+                font-size:10px;
+                font-weight:600;
+                text-decoration:none;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+            </a>
 
-        <a href="https://www.instagram.com/lisotechinnovations" target="_blank" style="
-            width:85px; height:26px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            Instagram
-        </a>
+            <!-- Instagram Layout: Brand Gradient Background -->
+            <a href="https://www.instagram.com/lisotechinnovations" target="_blank" style="
+                width:85px;
+                height:26px;
+                background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+                border-radius:4px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                gap: 5px;
+                color:white;
+                font-size:10px;
+                font-weight:600;
+                text-decoration:none;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
 
-        <a href="https://wa.me/message/NEGCGNOZ4BOHP1" target="_blank" style="
-            width:85px; height:26px; background-color: #128C7E; border-radius:4px; display:flex; align-items:center; justify-content:center; gap: 5px; color:white; font-size:10px; font-weight:600; text-decoration:none;">
-            <svg width="11" height="11" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.6 66.4 14 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-            WhatsApp
-        </a>
-    </div>
+            <!-- WhatsApp Layout: Dark Green Background with Official Logo -->
+            <a href="https://wa.me/message/NEGCGNOZ4BOHP1" target="_blank" style="
+                width:85px;
+                height:26px;
+                background-color: #128C7E;
+                border-radius:4px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                gap: 5px;
+                color:white;
+                font-size:10px;
+                font-weight:600;
+                text-decoration:none;">
+                <svg width="11" height="11" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.6 66.4 14 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                WhatsApp
+            </a>
 
-    <!-- Mandatory AdSense Trust Links in Footer -->
-    <div class="footer-policy-links">
-      <button onclick="toggleAboutModal(true)">About Us</button>
-      <span>|</span>
-      <button onclick="togglePrivacyModal(true)">Privacy Policy</button>
-      <span>|</span>
-      <a href="#contact" style="color: #030f20; font-size: 12px; font-weight: 700; text-decoration: underline;">Contact Us</a>
-    </div>
-    
-    <div>
-        <p style="margin:2px 0; font-size:11px; opacity:0.95;">
-            © Lisotech Innovations || All Rights Reserved.
-        </p>
-    </div>
+        </div>
+        
+        <div>
+            <p style="margin:1px 0; font-size:11px; opacity:0.95;">
+                © Lisotech Innovations || All Rights Reserved.
+            </p>
+        </div>
 
-    <div>
-        <p style="margin:2px 0; font-size:11px; opacity:0.95;">
-           <a href="https://lisotech.org" style="color: inherit; text-decoration: none;">Powered by <span>LISOTECH</span></a>
-        </p>
-    </div>
-    
-  </footer>
+        <div>
+            <p style="margin:1px 0; font-size:11px; opacity:0.95;">
+               <a href="https://lisotech.org" class="hover:text-white transition">Powered by <span>LISOTECH</span></a>
+            </p>
+        </div>
+        
+    </footer>
 
   <!-- Floating Communication Buttons -->
   <a href="tel:+260974101130" class="floating-phone" title="Call Us">
@@ -1739,6 +1710,7 @@
       }
     }
 
+    /* Modal Script Functions */
     function toggleModal(show) {
       const modal = document.getElementById("priceModal");
       if (show) {
@@ -1750,28 +1722,7 @@
       }
     }
 
-    function toggleAboutModal(show) {
-      const modal = document.getElementById("aboutModal");
-      if (show) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      } else {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      }
-    }
-
-    function togglePrivacyModal(show) {
-      const modal = document.getElementById("privacyModal");
-      if (show) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      } else {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      }
-    }
-
+    /* Booking Modal Scripts */
     function toggleBookingModal(show) {
       const modal = document.getElementById("bookingModal");
       if (show) {
@@ -1788,8 +1739,8 @@
       pacra: {
         title: "PACRA Services",
         items: [
-          { name: "Business Name", price: "K850" },
-          { name: "Partnership", price: "K1,500" },
+          { name: "Business Name ", price: "K850" },
+          { name: "Partnership", price: "K1500" },
           { name: "Limited Company", price: "K3,200" },
           { name: "Annual Returns", price: "K250/Y" },
           { name: "PACRA Printout", price: "K500" }
@@ -1807,30 +1758,30 @@
       napsa: {
         title: "NAPSA Services",
         items: [
-          { name: "Individual Registration", price: "K200" },
-          { name: "Company Registration", price: "K1,000" },
-          { name: "Compliance & Returns", price: "K250" }
+          { name: "Individual Reg", price: "K200" },
+          { name: "Company Reg", price: "K100 / Emp" },
+          { name: "Compliancy & Returns", price: "K500" }
         ]
       },
       zppa: {
         title: "ZPPA Services",
         items: [
-          { name: "New Registrations", price: "K800" },
-          { name: "Certificate Renewal", price: "K650" }
+          { name: "New ZPPA Registration", price: "K900" },
+          { name: "Certificate Renewal", price: "K600" }
         ]
       },
       workers: {
         title: "Workers Compensation",
         items: [
-          { name: "New Registration", price: "K1,000" },
+          { name: "New Workers Comp Setup", price: "K1,000" },
           { name: "Annual Certificate Renewal", price: "K1,000" }
         ]
       },
       nhima: {
         title: "NHIMA Services",
         items: [
-          { name: "Individual Registration", price: "K200" },
           { name: "Company Registration", price: "K1,000" },
+          { name: "Personal Registration", price: "K200" },
           { name: "Monthly Returns Filing", price: "K50 / Emp" }
         ]
       },
@@ -1892,11 +1843,10 @@
       if (!modalContent.contains(event.target)) {
         if (modalId === 'priceModal') toggleModal(false);
         if (modalId === 'bookingModal') toggleBookingModal(false);
-        if (modalId === 'aboutModal') toggleAboutModal(false);
-        if (modalId === 'privacyModal') togglePrivacyModal(false);
       }
     }
 
+    /* Footer Animations */
     function createFlower() {
       const footer = document.getElementById('animated-footer');
       if (!footer) return;
